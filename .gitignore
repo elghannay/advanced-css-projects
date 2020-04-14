@@ -1,7 +1,7 @@
 
 # Created by https://www.gitignore.io/api/video,images
 # Edit at https://www.gitignore.io/?templates=video,images
-img/*
+Natours/img/*
 ### Images ###
 # JPEG
 *.jpg
