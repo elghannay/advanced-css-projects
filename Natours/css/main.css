@@ -13,11 +13,14 @@ dark blue : #0A7AA6;
   padding: 0;
   margin: 0;
   box-sizing: inherit;
+  /* everything will inherit the box sizing */
 }
 
 html {
   /* set 1 rem -> 10px and keep it relative to the 
-  default browser font size at the same time if browser */
+    default browser font size at the same time */
+  /* why not using 100% ? we don't want to bother 
+  ourselves with calculation convert to multiple of 1o */
   font-size: 62.5%;
 }
 
@@ -30,7 +33,7 @@ body {
   box-sizing: border-box;
 }
 
-header {
+.header {
   height: 95vh;
   background-image: linear-gradient(to right bottom, #35b6f1d0, #5464f3d0), url(../img/hero.jpg);
   background-size: cover;
@@ -39,13 +42,13 @@ header {
   position: relative;
 }
 
-.logo-box {
+.header__logo-box {
   position: absolute;
   top: 4rem;
   left: 4rem;
 }
 
-.logo {
+.header__logo {
   height: 3.5rem;
 }
 
@@ -69,14 +72,14 @@ header {
   /* to prevent the animation from shaking */
 }
 
-.primary-heading-main {
+.primary-heading--main {
   font-size: 6rem;
   display: block;
   letter-spacing: 1.7rem;
   animation: moveLeft 1000ms ease-in-out;
 }
 
-.primary-heading-sub {
+.primary-heading--sub {
   font-size: 2rem;
   display: block;
   letter-spacing: 1rem;
@@ -150,7 +153,7 @@ header {
   box-shadow: 0rem .5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
-.btn-white {
+.btn--white {
   background-color: #fff;
   color: #777;
 }
@@ -168,7 +171,7 @@ header {
   transition: all 0.4s;
 }
 
-.btn-white::after {
+.btn--white::after {
   background-color: white;
 }
 
@@ -177,7 +180,7 @@ header {
   opacity: 0;
 }
 
-.btn-animation {
+.btn--animation {
   animation: moveFromDown .5s ease-out .75s;
   animation-fill-mode: backwards;
   /* forces the start value of the animation */
