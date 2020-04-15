@@ -1,3 +1,10 @@
+/*
+colors : 
+dark blue : #022859;    
+dark blue : #0D518C;
+dark blue : #F2F2F2;
+dark blue : #0A7AA6;
+*/
 $color-black: black;
 $text-grey: #777;
 $primary-light-green: #7ed56f;
@@ -10,9 +17,14 @@ $primary-dark-green: #28b485;
   padding: 0;
   margin: 0;
   box-sizing: inherit;
+  /* everything will inherit the box sizing */
 }
 
 html {
+  /* set 1 rem -> 10px and keep it relative to the 
+      default browser font size at the same time */
+  /* why not using 100% ? we don't want to bother 
+    ourselves with calculation convert to multiple of 1o */
   font-size: 62.5%;
 }
 
@@ -46,9 +58,16 @@ body {
 
   &__text-box {
     text-align: center;
+    /*you can always use flex box*/
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%; */
+    /* the position is in relation to the parent element */
     position: absolute;
     top: 40%;
     left: 50%;
+    /* the translate depends on the element itself */
     transform: translate(-50%, -50%);
   }
 }
@@ -57,6 +76,7 @@ body {
   color: white;
   text-transform: uppercase;
   backface-visibility: hidden;
+  /* to prevent the animation from shaking */
   &--main {
     font-size: 6rem;
     display: block;
@@ -119,11 +139,13 @@ body {
   &:link,
   &:visited {
     text-transform: uppercase;
+    /* obligatory for the transform on hover to work */
     display: inline-block;
     text-decoration: none;
     padding: 1.5rem 4rem;
     border-radius: 10rem;
     transition: all 0.2s ease;
+    /* for the animation of the button */
     position: relative;
     font-size: 1.6rem;
   }
@@ -167,5 +189,6 @@ body {
   &--animation {
     animation: moveFromDown 0.5s ease-out 0.75s;
     animation-fill-mode: backwards;
+    /* forces the start value of the animation */
   }
 }
