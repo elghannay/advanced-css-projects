@@ -1,0 +1,26 @@
+body {
+    font-family: roboto, sans-serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.7;
+    color: $text-grey;
+}
+.primary-heading {
+    color: white;
+    text-transform: uppercase;
+    backface-visibility: hidden;
+    &--main {
+        font-size: 6rem;
+        display: block;
+        letter-spacing: 1.7rem;
+        animation: moveLeft 1000ms ease-in-out;
+    }
+
+    &--sub {
+        font-size: 2rem;
+        display: block;
+        letter-spacing: 1rem;
+        margin-bottom: 4rem;
+        animation: moveRight 1s ease-in-out;
+    }
+}
