@@ -1,0 +1,40 @@
+.row {
+    max-width: $grid-width;
+    margin: 0 auto;
+    //check the element that has 0 on width then clear it.
+    @include clearfix;
+
+    &:not(:last-child) {
+        margin-bottom: $vertical-gutter-width;
+    }
+
+    [class^="col-"] {
+        // background-color: rgb(255, 0, 212);
+        // color: white;
+        // text-align: center;
+        padding: 2rem;
+        float: left;
+        &:not(:last-child) {
+            margin-right: $horizontal-gutter-width;
+        }
+    }
+    // make sure to separate the plus sign from the # sign with a space
+    .col-1-of-2 {
+        width: calc((100% - #{$horizontal-gutter-width}) / 2);
+    }
+    .col-1-of-3 {
+        width: calc((100% - (2 * #{$horizontal-gutter-width})) / 3);
+    }
+    .col-2-of-3 {
+        width: calc(2 * ((100% - 2 * #{$horizontal-gutter-width}) / 3) + #{$horizontal-gutter-width});
+    }
+    .col-1-of-4 {
+        width: calc((100% - (3 * #{$horizontal-gutter-width})) / 4);
+    }
+    .col-2-of-4 {
+        width: calc(2 * ((100% - 3 * #{$horizontal-gutter-width}) / 4) + #{$horizontal-gutter-width});
+    }
+    .col-3-of-4 {
+        width: calc(3 * ((100% - 3 * #{$horizontal-gutter-width}) / 4) + 2 * #{$horizontal-gutter-width});
+    }
+}

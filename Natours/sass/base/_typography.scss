@@ -24,3 +24,28 @@ body {
         animation: moveRight 1s ease-in-out;
     }
 }
+.heading-secondary {
+    text-transform: uppercase;
+    font-weight: 400;
+    background-image: linear-gradient(to right, $primary-light-green, $primary-dark-green);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 3.5rem;
+    letter-spacing: 0.2rem;
+    display: inline-block;
+    transition: all 0.2s;
+    &:hover {
+        transform: scale(1.1) skewX(1deg) skewY(1deg);
+        text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.199);
+    }
+}
+
+.heading-tertiary {
+    text-transform: uppercase;
+    font-size: $default-font-size;
+}
+.paragraph {
+    font-weight: 400;
+    font-size: $default-font-size;
+}
