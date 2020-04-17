@@ -101,6 +101,33 @@ body {
 .u-mb-medium {
   margin-bottom: 4rem; }
 
+.card {
+  perspective: 150rem;
+  height: 50vh;
+  position: relative; }
+  .card__side {
+    font-size: 4rem;
+    color: white;
+    height: 50vh;
+    transition: all 0.8s ease;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    backface-visibility: hidden;
+    border-radius: 3px;
+    box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.2); }
+    .card__side--front {
+      background-color: white; }
+    .card__side--back {
+      transform: rotateY(180deg); }
+      .card__side--back-1 {
+        background-image: linear-gradient(to right bottom, #ffb000, #ff7730); }
+  .card:hover .card__side--front {
+    transform: rotateY(180deg); }
+  .card:hover .card__side--back {
+    transform: rotateY(0deg); }
+
 .btn:link, .btn:visited {
   text-transform: uppercase;
   display: inline-block;
@@ -270,3 +297,8 @@ body {
   margin-top: -10rem; }
   .section-features > * {
     transform: skewY(7deg); }
+
+.section-tours {
+  padding: 25rem 0 50rem 0;
+  margin-top: -10rem;
+  background-color: #f7f7f7; }
