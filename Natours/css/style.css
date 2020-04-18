@@ -309,6 +309,24 @@ body {
   .feature-box__text {
     font-size: 1.5rem; }
 
+.story {
+  margin: 0 auto;
+  width: 75%;
+  padding: 6rem;
+  border-radius: 3px;
+  background-color: white;
+  box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.2); }
+  .story__shape {
+    height: 15rem;
+    width: 15rem;
+    float: left;
+    /*shape-outside only works when float and height and width*/
+    shape-outside: circle(50% at 50% 50%);
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    background-color: red;
+    transform: translateX(-3rem);
+    clip-path: circle(50% at 50% 50%); }
+
 .header {
   height: 95vh;
   background-image: linear-gradient(to right bottom, rgba(85, 197, 122, 0.8), rgba(126, 213, 111, 0.8)), url(../img/hero.jpg);
@@ -371,10 +389,11 @@ body {
     transform: skewY(7deg); }
 
 .section-tours {
-  padding: 25rem 0 8rem 0;
+  padding: 25rem 0 0rem 0;
   margin-top: -10rem;
   background-color: #f7f7f7; }
 
 .section-stories {
+  margin-top: -5rem;
   padding: 20rem 0;
   background-color: #f7f7f7; }
