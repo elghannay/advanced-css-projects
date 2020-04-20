@@ -1,7 +1,7 @@
 .composition {
     position: relative;
     &__photo {
-        width: 55%;
+        max-width: 55%;
         position: absolute;
         outline-offset: 0.2rem;
         transition: all 0.2s;

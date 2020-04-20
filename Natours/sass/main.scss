@@ -2,30 +2,20 @@
 @import "abstracts/mixins";
 @import "abstracts/variables";
 
-@import "base/base";    
+@import "base/base";
 @import "base/animations";
 @import "base/typography";
 @import "base/utilities";
 
+@import "components/bg-video.scss";
 @import "components/button";
 @import "components/card";
 @import "components/composition";
 @import "components/feature-box";
+@import "components/form";
 @import "components/story";
 
 @import "layouts/header";
 @import "layouts/grid";
 
 @import "pages/home";
-
- 
-
-
-
-
- 
-
-
-
-
-

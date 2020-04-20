@@ -1,5 +1,5 @@
 .row {
-    width: $grid-width;
+    max-width: $grid-width;
     margin: 0 auto;
     //check the element that has 0 on width then clear it.
     @include clearfix;

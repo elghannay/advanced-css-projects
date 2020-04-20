@@ -195,15 +195,23 @@
     </div>
   </section>
   <section class="section-stories">
+    <div class="bg-video">
+      <video class="bg-video__content" autoplay muted loop>
+        <source src="img/video.mp4" type="video/mp4">
+        <source src="img/video.webm" type="video/webm">
+        you're browser is not supported !
+      </video>
+    </div>
     <div class="u-text-c">
       <h2 class="heading-secondary u-mb-big">
         Exciting tours for adventurous people
       </h2>
     </div>
     <div class="row">
-      <div class="story">
+      <div class="story u-mb-big">
         <figure class="story__shape">
-          <img src="img/nat-8.jpg" alt="a person having riding a boat">
+          <img src="img/nat-8.jpg" alt="a person having riding a boat" class="story__image">
+          <figcaption class="story__caption">mary smith</figcaption>
         </figure>
         <div class="story__text">
           <h3 class="heading-tertiary u-mb-small">
@@ -214,6 +222,46 @@
             aspernatur libero repellat quis consequatur ducimus quam nisi exercitationem omnis earum qui. Aperiam, ipsum
             sapiente aspernatur libero repellat quis consequatur ducimus quam nisi exercitationem omnis earum qui.
           </p>
+        </div>
+      </div>
+      <div class="story">
+        <figure class="story__shape">
+          <img src="img/nat-9.jpg" alt="a climbing the mountain" class="story__image">
+          <figcaption class="story__caption">adam mahou</figcaption>
+        </figure>
+        <div class="story__text">
+          <h3 class="heading-tertiary u-mb-small">
+            I HAD THE BEST WEEK EVER WITH MY FAMILY
+          </h3>
+          <p class="paragraph ">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, ipsum sapiente
+            aspernatur libero repellat quis consequatur ducimus quam nisi exercitationem omnis earum qui. Aperiam, ipsum
+            sapiente aspernatur libero repellat quis consequatur ducimus quam nisi exercitationem omnis earum qui.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="u-text-c">
+      <a href="#" class="btn-text">read all stories &rarr;</a>
+    </div>
+  </section>
+  <section class="section-booking">
+    <div class="row">
+      <div class="book">
+        <div class="book__form">
+          <form action="#" class="form" method="post">
+            <h2 class="heading-secondary  u-mb-medium">
+              start booking now
+            </h2>
+            <div class="form__group">
+              <input id=" text" type="text" placeholder="full name" class="form__input" required>
+              <label for="text" class="form__label">full name</label>
+            </div>
+            <div class="form__roup">
+              <input id=" email" type="email" placeholder="email address" class="form__input" required>
+              <label for="email" class="form__label">email address</label>
+            </div>
+          </form>
         </div>
       </div>
     </div>

@@ -1,0 +1,45 @@
+.form {
+    &__group:not(:last-child) {
+        margin-bottom: 2rem;
+    }
+
+    &__input {
+        display: block;
+        padding: 1.5rem 2rem;
+        font-size: 1.5rem;
+        color: inherit;
+        width: 75%;
+        border: none;
+        border-bottom: 3px solid transparent;
+        transition: all 0.2s ease;
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 2rem 2rem rgba($color: #000000, $alpha: 0.1);
+            border-bottom: 3px solid $primary-dark-green;
+        }
+
+        &:focus:invalid {
+            border-bottom: 3px solid $color-secondary-dark;
+        }
+
+        &::-webkit-input-placeholder {
+            color: inherit;
+        }
+    }
+
+    &__label {
+        margin-left: 2rem;
+        font-size: 1.2rem;
+        /* convert it to block so you can use with it translate */
+        display: block;
+        transition: all 0.2s ease;
+    }
+
+    &__input:placeholder-shown + &__label {
+        /* this takes effect when the placeholder is still showing*/
+        transform: translateY(-4rem);
+        opacity: 0;
+        visibility: hidden;
+    }
+}

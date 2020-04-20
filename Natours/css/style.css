@@ -104,6 +104,23 @@ body {
 .u-mt-big {
   margin-top: 8rem; }
 
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.15;
+  overflow: hidden; }
+  .bg-video__content {
+    height: 100%;
+    width: 100%;
+    /* the element will fill the width while maintaining it aspect ratio*/
+    /* and the part of the video that don't fit the parent get clipped off*/
+    /* instead of working with only images as background-size:cover it works with html elements */
+    object-fit: cover; }
+
 .btn:link, .btn:visited {
   text-transform: uppercase;
   display: inline-block;
@@ -268,7 +285,7 @@ body {
 .composition {
   position: relative; }
   .composition__photo {
-    width: 55%;
+    max-width: 55%;
     position: absolute;
     outline-offset: 0.2rem;
     transition: all 0.2s;
@@ -309,13 +326,49 @@ body {
   .feature-box__text {
     font-size: 1.5rem; }
 
+.form__group:not(:last-child) {
+  margin-bottom: 2rem; }
+
+.form__input {
+  display: block;
+  padding: 1.5rem 2rem;
+  font-size: 1.5rem;
+  color: inherit;
+  width: 75%;
+  border: none;
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s ease; }
+  .form__input:focus {
+    outline: none;
+    box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.1);
+    border-bottom: 3px solid #28b485; }
+  .form__input:focus:invalid {
+    border-bottom: 3px solid #ff7730; }
+  .form__input::-webkit-input-placeholder {
+    color: inherit; }
+
+.form__label {
+  margin-left: 2rem;
+  font-size: 1.2rem;
+  /* convert it to block so you can use with it translate */
+  display: block;
+  transition: all 0.2s ease; }
+
+.form__input:placeholder-shown + .form__label {
+  /* this takes effect when the placeholder is still showing*/
+  transform: translateY(-4rem);
+  opacity: 0;
+  visibility: hidden; }
+
 .story {
   margin: 0 auto;
   width: 75%;
   padding: 6rem;
+  margin-bottom: 4rem;
   border-radius: 3px;
-  background-color: white;
-  box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.2); }
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  transform: skewX(-12deg); }
   .story__shape {
     height: 15rem;
     width: 15rem;
@@ -323,9 +376,37 @@ body {
     /*shape-outside only works when float and height and width*/
     shape-outside: circle(50% at 50% 50%);
     -webkit-shape-outside: circle(50% at 50% 50%);
-    background-color: red;
-    transform: translateX(-3rem);
-    clip-path: circle(50% at 50% 50%); }
+    clip-path: circle(50% at 50% 50%);
+    transform: skewX(12deg);
+    position: relative; }
+  .story__image {
+    height: 100%;
+    /*  A  */
+    transform: translateX(-4rem) scale(1.2);
+    transition: all 0.2s ease;
+    /* solves the glitch problem */
+    backface-visibility: hidden; }
+  .story__text {
+    transform: skewX(12deg) translateX(4rem); }
+  .story__caption {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1.6rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -10%);
+    color: white;
+    opacity: 0;
+    transition: all 0.2s ease;
+    backface-visibility: hidden; }
+  .story:hover .story__image {
+    filter: blur(3px) brightness(80%);
+    /* make sure to include the same properties as 'A' */
+    transform: translateX(-4rem) scale(1); }
+  .story:hover .story__caption {
+    transform: translate(-50%, -50%);
+    opacity: 1; }
 
 .header {
   height: 95vh;
@@ -348,7 +429,7 @@ body {
     transform: translate(-50%, -50%); }
 
 .row {
-  width: 114rem;
+  max-width: 114rem;
   margin: 0 auto; }
   .row::after {
     content: "";
@@ -359,19 +440,19 @@ body {
   .row [class^="col-"] {
     float: left; }
     .row [class^="col-"]:not(:last-child) {
-      margin-right: 6rem; }
+      margin-right: 4rem; }
   .row .col-1-of-2 {
-    width: calc((100% - 6rem) / 2); }
+    width: calc((100% - 4rem) / 2); }
   .row .col-1-of-3 {
-    width: calc((100% - (2 * 6rem)) / 3); }
+    width: calc((100% - (2 * 4rem)) / 3); }
   .row .col-2-of-3 {
-    width: calc(2 * ((100% - 2 * 6rem) / 3) + 6rem); }
+    width: calc(2 * ((100% - 2 * 4rem) / 3) + 4rem); }
   .row .col-1-of-4 {
-    width: calc((100% - (3 * 6rem)) / 4); }
+    width: calc((100% - (3 * 4rem)) / 4); }
   .row .col-2-of-4 {
-    width: calc(2 * ((100% - 3 * 6rem) / 4) + 6rem); }
+    width: calc(2 * ((100% - 3 * 4rem) / 4) + 4rem); }
   .row .col-3-of-4 {
-    width: calc(3 * ((100% - 3 * 6rem) / 4) + 2 * 6rem); }
+    width: calc(3 * ((100% - 3 * 4rem) / 4) + 2 * 4rem); }
 
 .section-about {
   background-color: #f7f7f7;
@@ -389,11 +470,24 @@ body {
     transform: skewY(7deg); }
 
 .section-tours {
-  padding: 25rem 0 0rem 0;
+  padding: 25rem 0 10rem 0;
   margin-top: -10rem;
   background-color: #f7f7f7; }
 
 .section-stories {
-  margin-top: -5rem;
-  padding: 20rem 0;
-  background-color: #f7f7f7; }
+  margin-top: -10rem;
+  padding: 20rem 0 10rem 0;
+  position: relative; }
+
+.section-booking {
+  padding: 15rem 0;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)); }
+  .section-booking .book {
+    background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 50%, transparent 50%), url(../img/nat-10.jpg);
+    background-size: 100%;
+    height: 50rem;
+    border-radius: 3px;
+    box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.2); }
+    .section-booking .book__form {
+      width: 60%;
+      padding: 10rem; }
