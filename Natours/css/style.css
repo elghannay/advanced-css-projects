@@ -1,19 +1,6 @@
 /***********  colors  ***********/
 /***********  grid  ***********/
 /***********  font  ***********/
-*,
-*::after,
-*::before {
-  padding: 0;
-  margin: 0;
-  box-sizing: inherit; }
-
-html {
-  font-size: 62.5%; }
-
-body {
-  box-sizing: border-box; }
-
 @keyframes moveLeft {
   0% {
     transform: translateX(50%);
@@ -43,6 +30,19 @@ body {
     opacity: 100%; } }
 
 /******** END keyframes *********/
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  box-sizing: border-box; }
+
 body {
   font-family: roboto, sans-serif;
   font-size: 1.6rem;
@@ -56,6 +56,7 @@ body {
   backface-visibility: hidden; }
   .primary-heading--main {
     font-size: 6rem;
+    /* animation does not work with inline elements ?*/
     display: block;
     letter-spacing: 1.7rem;
     animation: moveLeft 1000ms ease-in-out; }
@@ -484,7 +485,8 @@ body {
   background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)); }
   .section-booking .book {
     background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 50%, transparent 50%), url(../img/nat-10.jpg);
-    background-size: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
     height: 50rem;
     border-radius: 3px;
     box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.2); }

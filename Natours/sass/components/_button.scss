@@ -2,6 +2,7 @@
   &:link,
   &:visited {
     text-transform: uppercase;
+    // display so the padding can be applied
     display: inline-block;
     text-decoration: none;
     padding: 1.5rem 4rem;
@@ -58,6 +59,7 @@
 
   &--animation {
     animation: moveFromDown 0.5s ease-out 0.75s;
+    // backwards postpone the animation.
     animation-fill-mode: backwards;
   }
 }
