@@ -1,0 +1,53 @@
+.clearfix {
+    clear: both;
+}
+
+.packages-plans {
+    /* padding: 50px 100px; */
+    border: 2px solid rgb(2, 26, 2);
+    width: 70%;
+    margin: 16px 0;
+}
+
+.packages-plans--medium {
+    background-color: rgb(131, 255, 127);
+}
+
+.packages-plans--light {
+    background-color: rgb(183, 255, 181);
+    float: right;
+}
+
+.packages-plans--dark {
+    background-color: rgb(38, 102, 36);
+}
+
+.packages-plan {
+    text-align: left;
+    text-decoration: none;
+    display: block;
+    padding: 48px;
+}
+
+.packages-plan--heading {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: black;
+}
+
+.packages-plan--heading-light {
+    color: white;
+}
+
+.packages-plan--sub {
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.packages-plan--paragraph {
+    background-color: white;
+    border: 1px solid black;
+    padding: 10px;
+    color: black;
+    font-size: 17px;
+}

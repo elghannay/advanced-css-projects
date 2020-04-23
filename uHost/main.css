@@ -104,3 +104,8 @@
     height: 110px;
     margin: 20px auto;
 }
+
+.wrapper {
+    width: 95%;
+    margin: auto;
+}
