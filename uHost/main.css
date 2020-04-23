@@ -196,7 +196,21 @@ body {
 
 .key-feature {
     display: inline-block;
-    width: 20%;
+    width: 30%;
 }
 
-.key-features__description {}
+.key-feature__description {
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+    vertical-align: top;
+}
+
+.key-feature__image {
+    width: 110px;
+    border-radius: 50%;
+    border: 1px solid black;
+    background-color: white;
+    height: 110px;
+    margin: 20px auto;
+}
