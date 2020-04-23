@@ -1,0 +1,133 @@
+*, *::after, *::before {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* header section */
+
+.main-header {
+    background-color: #2ddf5c;
+    padding: 10px 40px;
+}
+
+.header__logo {
+    font-weight: 600;
+    font-size: 36px;
+    text-decoration: none;
+    color: white;
+}
+
+.main-nav {
+    text-align: right;
+    width: calc(100% - 107px);
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.main-header>div {
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.main-nav__items {
+    list-style-type: none;
+}
+
+.main-nav__item {
+    display: inline-block;
+    padding: 0 1rem;
+}
+
+.nav__item-link {
+    text-decoration: none;
+    color: white;
+    padding: 10px 0;
+}
+
+.nav__item-link:hover {
+    border-bottom: 5px solid white;
+    font-weight: 500;
+}
+
+.main-nav__item--cta a {
+    background-color: #ff1b68;
+    border-radius: 5px;
+    padding: 10px 20px;
+    transition: all .2s ease;
+    font-weight: 600;
+}
+
+.main-nav__item--cta a:hover, .main-nav__item--cta a:active {
+    font-weight: 600;
+    color: #ff1b68;
+    background-color: white;
+    border: none;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .35);
+}
+
+.main-nav__item--cta a:active {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .35);
+}
+
+.btn {
+    padding: 10px 15px;
+    border: 1px solid white;
+    font: inherit;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.btn:focus {
+    /* transition: none; */
+    outline: none;
+    /* box-shadow: 0px 10px 20px rgba(0, 0, 0, .2); */
+}
+
+.btn-green {
+    background-color: #1dd84f;
+    color: white;
+}
+
+.btn-white {
+    background-color: white;
+    color: #1a4e28;
+}
+
+.btn:hover {
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, .2);
+}
+
+.btn:active {
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, .2);
+}
+
+.footer-section {
+    padding: 20px;
+    background-color: black;
+}
+
+.footer__links {
+    list-style-type: none;
+    text-align: center;
+}
+
+.footer__link {
+    display: inline-block;
+    margin: 0 24px;
+}
+
+.footer__link a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer__link a:hover {
+    color: wheat;
+}
