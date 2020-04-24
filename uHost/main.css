@@ -6,8 +6,11 @@
     height: 528px;
     padding: 10px;
     border: 5px solid black;
-    background: url(freedom.jpg) right top no-repeat;
+    background: url(images/freedom.jpg) no-repeat;
     background-size: cover;
+    background-position: bottom;
+    background-origin: border-box;
+    background-attachment: fixed;
     /* margin: 10px; */
 }
 
