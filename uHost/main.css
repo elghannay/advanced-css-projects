@@ -2,13 +2,13 @@
 
 #product-overview {
     background: #ff1b68;
-    width: 100%;
-    height: 528px;
+    width: 100vw;
+    height: 80vh;
     padding: 10px;
     border: 5px solid black;
     background: linear-gradient(to bottom, rgba(223, 102, 102, 0.4) 10%, transparent), url(images/freedom.jpg) no-repeat;
     background-size: cover;
-    background-position: bottom;
+    background-position: bottom 80%;
 }
 
 #product-overview h1 {
