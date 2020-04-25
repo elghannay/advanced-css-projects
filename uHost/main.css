@@ -109,3 +109,7 @@
     width: 95%;
     margin: auto;
 }
+
+.open {
+    display: block !important;
+}
