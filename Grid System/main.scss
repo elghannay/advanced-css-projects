@@ -1,0 +1,23 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+$grid-size: 12;
+
+%grid-formatting {
+    font-size: 20px;
+    text-align: center;
+    padding: 40px;
+    background-color: rgb(55, 214, 127);
+    float: left;
+    border: 1px solid black;
+}
+
+@for $i from 1 through $grid-size {
+    .col-#{$i} {
+        @extend %grid-formatting;
+        width: 100% / ($grid-size / $i);
+    }
+}
