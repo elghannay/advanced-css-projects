@@ -1,5 +1,6 @@
 @mixin clearfix {
-    &::after{
+    &::after {
+        // content is compalsory for the after to work
         content: "";
         display: table;
         clear: both;

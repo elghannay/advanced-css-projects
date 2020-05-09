@@ -134,7 +134,7 @@ body {
 
 .btn:hover {
   transform: translateY(-0.2rem);
-  box-shadow: 0rem 1rem 1rem rgba(0, 0, 0, 0.2); }
+  box-shadow: 0rem 1rem 2rem rgba(0, 0, 0, 0.2); }
   .btn:hover:hover::after {
     transform: scaleX(1.2) scaleY(1.5);
     opacity: 0; }
@@ -288,20 +288,20 @@ body {
   .composition__photo {
     max-width: 55%;
     position: absolute;
-    outline-offset: 0.2rem;
     transition: all 0.2s;
     box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.5); }
+    .composition__photo--p1 {
+      top: 4rem;
+      left: 5rem; }
     .composition__photo--p2 {
       top: -2rem;
       left: 15rem;
       z-index: 10; }
-    .composition__photo--p1 {
-      top: 4rem;
-      left: 5rem; }
     .composition__photo--p3 {
       top: 8rem;
       right: 0rem; }
     .composition__photo:hover {
+      outline-offset: 0.2rem;
       outline: 1rem solid rgba(0, 0, 0, 0.5);
       z-index: 20;
       transform: scale(1.1); }

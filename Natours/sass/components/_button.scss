@@ -9,12 +9,13 @@
     border-radius: 10rem;
     transition: all 0.2s ease;
     position: relative;
+    // refer to the ::after btn that was created
     font-size: $default-font-size;
   }
 
   &:hover {
     transform: translateY(-0.2rem);
-    box-shadow: 0rem 1rem 1rem rgba($color-black, 0.2);
+    box-shadow: 0rem 1rem 2rem rgba($color-black, 0.2);
     &:hover::after {
       transform: scaleX(1.2) scaleY(1.5);
       opacity: 0;
@@ -59,7 +60,7 @@
 
   &--animation {
     animation: moveFromDown 0.5s ease-out 0.75s;
-    // backwards postpone the animation.
+    // backwards postpone the animation and set it initial values to 0.
     animation-fill-mode: backwards;
   }
 }

@@ -6,10 +6,11 @@
     box-shadow: 0 1rem 4rem rgba($color: black, $alpha: 0.2);
     transition: all 0.3s;
 
-    &__icon { 
+    &__icon {
         font-size: 6rem;
         display: inline-block;
         background-image: linear-gradient(to right, $primary-light-green, $primary-dark-green);
+        // gradient background for text.
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;

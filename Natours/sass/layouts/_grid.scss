@@ -1,8 +1,9 @@
 .row {
     max-width: $grid-width;
     margin: 0 auto;
-    //check the element that has 0 on width then clear it.
+    //check the element that has 0 on height then clear it.
     @include clearfix;
+    // .row::after{clear:both}  after each row add a clear
 
     &:not(:last-child) {
         margin-bottom: $vertical-gutter-width;
@@ -10,7 +11,6 @@
 
     [class^="col-"] {
         // background-color: rgb(255, 0, 212);
-        // color: white;
         // text-align: center;
         // padding: 2rem;
         float: left;
@@ -19,7 +19,10 @@
         }
     }
     // make sure to separate the plus sign from the # sign with a space
+    // since the space in sass does matter.
     .col-1-of-2 {
+        // the native calc function allow to mix units as opposed.
+        // to making the native sass calculation.
         width: calc((100% - #{$horizontal-gutter-width}) / 2);
     }
     .col-1-of-3 {

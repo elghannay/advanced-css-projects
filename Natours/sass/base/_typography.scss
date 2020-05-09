@@ -1,4 +1,6 @@
 body {
+    // we define font on the body since in most cases
+    // the font is inherited by other elements from the body
     font-family: roboto, sans-serif;
     font-size: 1.6rem;
     font-weight: 400;
@@ -8,6 +10,7 @@ body {
 .primary-heading {
     color: white;
     text-transform: uppercase;
+    // fix the shaking of the animation.
     backface-visibility: hidden;
     &--main {
         font-size: 6rem;
@@ -29,9 +32,11 @@ body {
     text-transform: uppercase;
     font-weight: 400;
     background-image: linear-gradient(to right, $primary-light-green, $primary-dark-green);
+    // start adding the gradient as a background text
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    // End
     font-size: 3.5rem;
     letter-spacing: 0.2rem;
     // notice the display

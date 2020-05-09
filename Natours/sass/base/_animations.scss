@@ -1,40 +1,40 @@
 @keyframes moveLeft {
-    0% {
-      transform: translateX(50%);
-      opacity: 0%;
-    }
-    80% {
-      transform: translateX(-10%);
-    }
-    100% {
-      opacity: 100%;
-      transform: translateX(0%);
-    }
+  0% {
+    transform: translateX(50%);
+    opacity: 0%;
   }
-  
-  @keyframes moveRight {
-    0% {
-      transform: translateX(-50%);
-      opacity: 0%;
-    }
-    80% {
-      transform: translateX(+10%);
-    }
-    100% {
-      transform: translateX(0%);
-      opacity: 100%;
-    }
+  80% {
+    transform: translateX(-10%);
   }
-  
-  @keyframes moveFromDown {
-    0% {
-      transform: translateY(3rem);
-      opacity: 0%;
-    }
-    100% {
-      transform: translateX(0rem);
-      opacity: 100%;
-    }
+  100% {
+    opacity: 100%;
+    transform: translateX(0%);
   }
-  
-  /******** END keyframes *********/
+}
+
+@keyframes moveRight {
+  0% {
+    transform: translateX(-50%);
+    opacity: 0%;
+  }
+  80% {
+    transform: translateX(+10%);
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 100%;
+  }
+}
+
+@keyframes moveFromDown {
+  0% {
+    transform: translateY(3rem);
+    opacity: 0%;
+  }
+  100% {
+    transform: translateX(0rem);
+    opacity: 100%;
+  }
+}
+
+/******** END keyframes *********/
