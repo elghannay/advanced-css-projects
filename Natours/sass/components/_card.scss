@@ -1,17 +1,22 @@
 .card {
     perspective: 150rem;
+    // we define perspective on the parent where the transform occurs.
     height: 50rem;
+    // we give the parent and the side the same height to fix the 0 height caused by absolute
     position: relative;
 
     &__side {
         height: 50rem;
         transition: all 0.8s ease-out;
+        // absolute to make the two sides on top of each other.
         position: absolute;
         left: 0;
         top: 0;
+        // if not specified the width of the card will get the width of content
         width: 100%;
         backface-visibility: hidden;
         border-radius: 3px;
+        // hide the overflow of image on the side of the card.
         overflow: hidden;
         box-shadow: 0 1rem 4rem rgba($color: #000000, $alpha: 0.2);
 
@@ -19,6 +24,7 @@
             background-color: white;
         }
         &--back {
+            // rotate to the opposite direction
             transform: rotateY(-180deg);
             &-1 {
                 background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
@@ -31,7 +37,7 @@
             }
         }
     }
-
+    // when we hover on the card we want the side to rotate.
     &:hover &__side--front {
         transform: rotateY(180deg);
     }
@@ -87,8 +93,8 @@
             &--2 {
                 background-image: linear-gradient(
                     to right bottom,
-                    rgba( $primary-light-green, 0.85),
-                    rgba( $primary-dark-green, 0.85)
+                    rgba($primary-light-green, 0.85),
+                    rgba($primary-dark-green, 0.85)
                 );
             }
             &--3 {

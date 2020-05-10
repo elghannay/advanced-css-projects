@@ -362,8 +362,8 @@ body {
   visibility: hidden; }
 
 .story {
-  margin: 0 auto;
   width: 75%;
+  margin: 0 auto;
   padding: 6rem;
   margin-bottom: 4rem;
   border-radius: 3px;
@@ -385,21 +385,22 @@ body {
     /*  A  */
     transform: translateX(-4rem) scale(1.2);
     transition: all 0.2s ease;
-    /* solves the glitch problem */
+    /* solves deformation of the shape after transform */
     backface-visibility: hidden; }
   .story__text {
     transform: skewX(12deg) translateX(4rem); }
   .story__caption {
-    text-transform: uppercase;
-    text-align: center;
-    font-size: 1.6rem;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -10%);
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1.6rem;
     color: white;
     opacity: 0;
     transition: all 0.2s ease;
+    /* solves the glitch problem */
     backface-visibility: hidden; }
   .story:hover .story__image {
     filter: blur(3px) brightness(80%);

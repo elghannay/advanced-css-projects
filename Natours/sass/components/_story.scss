@@ -1,20 +1,29 @@
 .story {
-    margin: 0 auto;
     width: 75%;
+    margin: 0 auto;
     padding: 6rem;
     margin-bottom: 4rem;
     border-radius: 3px;
     background-color: rgba($color: #fff, $alpha: 0.8);
     box-shadow: 0 1rem 2rem rgba($color: #000000, $alpha: 0.2);
     transform: skewX(-12deg);
+    // this will not work on the text since the transform property cannot be applied twice.
+    // * > {
+    //     transform: skewY(12deg);
+    // }
 
     &__shape {
+        // create a rectangle first and then transform it to a circle
         height: 15rem;
         width: 15rem;
+        // float is obligatory
         float: left;
         /*shape-outside only works when float and height and width*/
+        // circle(5o%) create a circle with a radius of 50% of height and width
+        // the second argument specify the position.
         shape-outside: circle(50% at 50% 50%);
         -webkit-shape-outside: circle(50% at 50% 50%);
+        // convert the shape of the image to a circle
         clip-path: circle(50% at 50% 50%);
         transform: skewX(+12deg);
         position: relative;
@@ -24,23 +33,25 @@
         /*  A  */
         transform: translateX(-4rem) scale(1.2);
         transition: all 0.2s ease;
-        /* solves the glitch problem */
+        /* solves deformation of the shape after transform */
         backface-visibility: hidden;
     }
     &__text {
         transform: skewX(+12deg) translateX(4rem);
     }
     &__caption {
-        text-transform: uppercase;
-        text-align: center;
-        font-size: 1.6rem;
+        // relative to the shape.
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -10%);
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 1.6rem;
         color: white;
         opacity: 0;
         transition: all 0.2s ease;
+        /* solves the glitch problem */
         backface-visibility: hidden;
     }
     &:hover &__image {
