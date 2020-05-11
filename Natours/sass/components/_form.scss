@@ -1,5 +1,9 @@
 .form {
-    &__group:not(:last-child) {
+    :nth-child(4) {
+        margin-bottom: 3rem;
+    }
+
+    &__group {
         margin-bottom: 2rem;
     }
 
@@ -7,9 +11,12 @@
         display: block;
         padding: 1.5rem 2rem;
         font-size: 1.5rem;
+        // input does not inherit font families
+        font-family: inherit;
         color: inherit;
         width: 75%;
         border: none;
+        // transparent
         border-bottom: 3px solid transparent;
         transition: all 0.2s ease;
 
@@ -25,21 +32,58 @@
 
         &::-webkit-input-placeholder {
             color: inherit;
+            // sets the color of the placeholder.
         }
     }
 
     &__label {
+        // to be aligned with the input text set it the same as padding.
         margin-left: 2rem;
         font-size: 1.2rem;
         /* convert it to block so you can use with it translate */
         display: block;
         transition: all 0.2s ease;
     }
-
+    // when the place holder is shown we want to style the label.
     &__input:placeholder-shown + &__label {
-        /* this takes effect when the placeholder is still showing*/
         transform: translateY(-4rem);
         opacity: 0;
         visibility: hidden;
+    }
+    &__radio-group {
+        display: inline-block;
+        width: 45%;
+        margin: 0 auto;
+    }
+    &__radio-input {
+        vertical-align: middle;
+        margin-right: 1rem;
+        border: 3px solid $primary-dark-green;
+        -webkit-appearance: none;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        position: relative;
+        // change the border to an outline and add a radius to it
+        &:checked::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: translate(13%, 13%);
+            background-color: $primary-dark-green;
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 50%;
+        }
+        // &:checked {
+        //     background-color: $primary-dark-green;
+        //     background-size: unset;
+        // }
+    }
+
+    &__radio-label {
+        font-size: $default-font-size;
+        cursor: pointer;
     }
 }

@@ -122,7 +122,7 @@ body {
     /* instead of working with only images as background-size:cover it works with html elements */
     object-fit: cover; }
 
-.btn:link, .btn:visited {
+.btn, .btn:link, .btn:visited {
   text-transform: uppercase;
   display: inline-block;
   text-decoration: none;
@@ -130,7 +130,10 @@ body {
   border-radius: 10rem;
   transition: all 0.2s ease;
   position: relative;
-  font-size: 1.6rem; }
+  font-size: 1.6rem;
+  border: none;
+  outline: none;
+  cursor: pointer; }
 
 .btn:hover {
   transform: translateY(-0.2rem);
@@ -327,13 +330,17 @@ body {
   .feature-box__text {
     font-size: 1.5rem; }
 
-.form__group:not(:last-child) {
+.form :nth-child(4) {
+  margin-bottom: 3rem; }
+
+.form__group {
   margin-bottom: 2rem; }
 
 .form__input {
   display: block;
   padding: 1.5rem 2rem;
   font-size: 1.5rem;
+  font-family: inherit;
   color: inherit;
   width: 75%;
   border: none;
@@ -356,10 +363,38 @@ body {
   transition: all 0.2s ease; }
 
 .form__input:placeholder-shown + .form__label {
-  /* this takes effect when the placeholder is still showing*/
   transform: translateY(-4rem);
   opacity: 0;
   visibility: hidden; }
+
+.form__radio-group {
+  display: inline-block;
+  width: 45%;
+  margin: 0 auto; }
+
+.form__radio-input {
+  vertical-align: middle;
+  margin-right: 1rem;
+  border: 3px solid #28b485;
+  -webkit-appearance: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  position: relative; }
+  .form__radio-input:checked::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(13%, 13%);
+    background-color: #28b485;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%; }
+
+.form__radio-label {
+  font-size: 1.6rem;
+  cursor: pointer; }
 
 .story {
   width: 75%;
@@ -410,25 +445,43 @@ body {
     transform: translate(-50%, -50%);
     opacity: 1; }
 
-.header {
-  height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(85, 197, 122, 0.8), rgba(126, 213, 111, 0.8)), url(../img/hero.jpg);
-  background-size: cover;
-  background-position: top;
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  position: relative; }
-  .header__logo-box {
-    position: absolute;
-    top: 4rem;
-    left: 4rem; }
-  .header__logo {
-    height: 3.5rem; }
-  .header__text-box {
+.footer {
+  background-color: #333;
+  padding: 8rem 0;
+  font-size: 1.4rem;
+  color: #eee; }
+  .footer__logo-box {
     text-align: center;
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%); }
+    margin-bottom: 6rem; }
+  .footer__logo {
+    width: 15rem;
+    height: auto; }
+  .footer__navigation {
+    border-top: 1px solid #444;
+    padding-top: 2rem;
+    display: inline-block; }
+  .footer__list {
+    list-style: none; }
+  .footer__item {
+    display: inline-block; }
+    .footer__item:not(:last-child) {
+      margin-right: 1.5rem; }
+  .footer__link:link, .footer__link:visited {
+    color: #eee;
+    background-color: #333;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block;
+    transition: all 0.2s; }
+  .footer__link:hover, .footer__link:active {
+    color: #7ed56f;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
+    transform: rotate(5deg) scale(1.3); }
+  .footer__copyright {
+    border-top: 1px solid #444;
+    padding-top: 2rem;
+    width: 80%;
+    float: right; }
 
 .row {
   max-width: 114rem;
@@ -455,6 +508,87 @@ body {
     width: calc(2 * ((100% - 3 * 4rem) / 4) + 4rem); }
   .row .col-3-of-4 {
     width: calc(3 * ((100% - 3 * 4rem) / 4) + 2 * 4rem); }
+
+.header {
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, rgba(85, 197, 122, 0.8), rgba(126, 213, 111, 0.8)), url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  position: relative; }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
+    text-align: center;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+
+.navigation__checkbox {
+  display: none; }
+
+.navigation__button {
+  width: 7rem;
+  height: 7rem;
+  background-color: white;
+  border-radius: 50%;
+  position: fixed;
+  top: 4rem;
+  right: 4rem;
+  z-index: 2000; }
+
+.navigation__background {
+  width: 6rem;
+  height: 6rem;
+  background-image: radial-gradient(#7ed56f, #28b485);
+  border-radius: 50%;
+  position: fixed;
+  top: 4.5rem;
+  right: 4.5rem;
+  z-index: 1000;
+  transform: scale(60); }
+
+.navigation__nav {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1500; }
+
+.navigation__list {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center; }
+
+.navigation__items {
+  list-style-type: none;
+  margin: 1rem; }
+
+.navigation__links:link, .navigation__links:visited {
+  display: inline-block;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 3rem;
+  color: white;
+  transition: all 0.3s ease;
+  background-image: linear-gradient(120deg, transparent 0%, transparent 50%, white 50%);
+  background-size: 220%; }
+
+.navigation__links:hover, .navigation__links:active {
+  color: #28b485;
+  background-color: white;
+  background-position: 100%;
+  transform: translateX(1rem); }
 
 .section-about {
   background-color: #f7f7f7;
@@ -493,4 +627,4 @@ body {
     box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.2); }
     .section-booking .book__form {
       width: 60%;
-      padding: 10rem; }
+      padding: 6rem 8rem 8rem; }
