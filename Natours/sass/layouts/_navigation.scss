@@ -3,34 +3,43 @@
         display: none;
     }
     &__button {
-        width: 7rem;
-        height: 7rem;
+        width: 6rem;
+        height: 6rem;
         background-color: white;
         border-radius: 50%;
         position: fixed;
         top: 4rem;
         right: 4rem;
         z-index: 2000;
+        // to center the icons inside the button
+        text-align: center;
+        cursor: pointer;
+        box-shadow: 0 1rem 2rem rgba($color: #000000, $alpha: 0.2);
     }
     &__background {
-        width: 6rem;
-        height: 6rem;
+        width: 5rem;
+        height: 5rem;
         background-image: radial-gradient($primary-light-green, $primary-dark-green);
         border-radius: 50%;
         position: fixed;
         top: 4.5rem;
         right: 4.5rem;
         z-index: 1000;
-        transform: scale(60);
+        transition: all 0.3s ease-in;
+        // transform: scale(60);
     }
 
     &__nav {
         height: 100vh;
-        width: 100%;
+        // in the normal state we want the nav to be not displayed
+        width: 0%;
+        opacity: 0%;
         position: fixed;
         top: 0;
-        right: 0;
+        left: 0;
+        // when animated the list comes from the left
         z-index: 1500;
+        transition: all 0.2s ease;
     }
     &__list {
         @include center-vertical;
@@ -63,5 +72,59 @@
             background-position: 100%;
             transform: translateX(1rem);
         }
+    }
+    &__checkbox:checked ~ &__nav {
+        width: 100%;
+        opacity: 1;
+    }
+    &__checkbox:checked ~ &__background {
+        transform: scale(70);
+    }
+    &__icon {
+        //icon positioning
+        position: relative;
+        margin-top: 3rem;
+        &,
+        &::before,
+        &::after {
+            // make a transition only for the rotation
+            transition: transform 0.4s;
+            width: 3rem;
+            height: 3px;
+            background-color: $color-grey-dark;
+            // so the lines does not show inline > span
+            display: inline-block;
+            border-radius: 2rem;
+        }
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+        }
+        &::before {
+            top: 1rem;
+        }
+        &::after {
+            top: -1rem;
+        }
+    }
+    &__button:hover &__icon::before {
+        top: 0.8rem;
+    }
+    &__button:hover &__icon::after {
+        top: -0.8rem;
+    }
+    &__checkbox:checked + &__button &__icon {
+        // to remove the span when rotating the others
+        background-color: transparent;
+    }
+    &__checkbox:checked + &__button &__icon::before {
+        transform: rotate(-135deg);
+        top: 0;
+    }
+    &__checkbox:checked + &__button &__icon::after {
+        transform: rotate(+135deg);
+        top: 0;
     }
 }
