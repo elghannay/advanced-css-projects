@@ -5,22 +5,22 @@
     &__button {
         width: 6rem;
         height: 6rem;
-        background-color: white;
         border-radius: 50%;
+        background-color: white;
         position: fixed;
         top: 4rem;
         right: 4rem;
         z-index: 2000;
+        box-shadow: 0 1rem 2rem rgba($color: #000000, $alpha: 0.2);
+        cursor: pointer;
         // to center the icons inside the button
         text-align: center;
-        cursor: pointer;
-        box-shadow: 0 1rem 2rem rgba($color: #000000, $alpha: 0.2);
     }
     &__background {
         width: 5rem;
         height: 5rem;
-        background-image: radial-gradient($primary-light-green, $primary-dark-green);
         border-radius: 50%;
+        background-image: radial-gradient($primary-light-green, $primary-dark-green);
         position: fixed;
         top: 4.5rem;
         right: 4.5rem;
@@ -60,9 +60,9 @@
             font-weight: 300;
             font-size: 3rem;
             color: white;
-            transition: all 0.3s ease;
             background-image: linear-gradient(120deg, transparent 0%, transparent 50%, white 50%);
             background-size: 220%;
+            transition: all 0.3s ease;
         }
         &:hover,
         &:active {
@@ -92,9 +92,9 @@
             width: 3rem;
             height: 3px;
             background-color: $color-grey-dark;
+            border-radius: 2rem;
             // so the lines does not show inline > span
             display: inline-block;
-            border-radius: 2rem;
         }
         &::before,
         &::after {
@@ -121,6 +121,7 @@
     }
     &__checkbox:checked + &__button &__icon::before {
         transform: rotate(-135deg);
+        // to center the lines
         top: 0;
     }
     &__checkbox:checked + &__button &__icon::after {
