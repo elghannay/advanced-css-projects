@@ -5,7 +5,10 @@
     @include center-vertical;
     position: fixed;
     z-index: 2200;
-    overflow: hidden;
+    // hide the popup in the default state.
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.2s;
 
     &__content {
         @include center-vertical;
@@ -18,6 +21,9 @@
         display: table;
         // to hide the image that overflow the border.
         overflow: hidden;
+        // scale the content when activating the popup
+        transform: translate(-50%, -50%) scale(0.2);
+        transition: all 0.2s 0.2s;
     }
     &__left {
         width: 33.3333333%;
@@ -41,5 +47,32 @@
         column-count: 2;
         column-gap: 4rem;
         column-rule: 1px solid rgba(128, 128, 128, 0.479);
+    }
+
+    &:target {
+        visibility: visible;
+        opacity: 1;
+    }
+    // when the popup becomes the target we select the content
+    &:target &__content {
+        // animate the content of the popup when it appears
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    &__close {
+        &:link,
+        &:visited {
+            font-size: 4rem;
+            display: inline-block;
+            text-decoration: none;
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            line-height: 1;
+            color: grey;
+        }
+        &:hover {
+            color: $primary-medium-green;
+        }
     }
 }

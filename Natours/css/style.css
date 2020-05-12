@@ -406,7 +406,9 @@ body {
   transform: translate(-50%, -50%);
   position: fixed;
   z-index: 2200;
-  overflow: hidden; }
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.2s; }
   .popup__content {
     position: absolute;
     top: 50%;
@@ -418,7 +420,9 @@ body {
     color: #777;
     border-radius: 5px;
     display: table;
-    overflow: hidden; }
+    overflow: hidden;
+    transform: translate(-50%, -50%) scale(0.2);
+    transition: all 0.2s 0.2s; }
   .popup__left {
     width: 33.3333333%;
     display: table-cell; }
@@ -437,6 +441,22 @@ body {
     column-count: 2;
     column-gap: 4rem;
     column-rule: 1px solid rgba(128, 128, 128, 0.479); }
+  .popup:target {
+    visibility: visible;
+    opacity: 1; }
+  .popup:target .popup__content {
+    transform: translate(-50%, -50%) scale(1); }
+  .popup__close:link, .popup__close:visited {
+    font-size: 4rem;
+    display: inline-block;
+    text-decoration: none;
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    line-height: 1;
+    color: grey; }
+  .popup__close:hover {
+    color: #55c57a; }
 
 .story {
   width: 75%;
