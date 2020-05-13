@@ -41,13 +41,13 @@
             @content;
         }
     }
-    @if $name == tab-land {
+    @if $name == tab-port {
         @media (max-width: 56.25em) {
             //900px is width < 900px ?
             @content;
         }
     }
-    @if $name == tab-port {
+    @if $name == tab-land {
         @media (max-width: 75em) {
             //1200px  width < 1200px ?
             @content;

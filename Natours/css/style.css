@@ -59,10 +59,10 @@
 
 html {
   font-size: 62.5%; }
-  @media (max-width: 56.25em) {
+  @media (max-width: 75em) {
     html {
       font-size: 56.25%; } }
-  @media (max-width: 75em) {
+  @media (max-width: 56.25em) {
     html {
       font-size: 50%; } }
   @media (min-width: 112.5em) {
@@ -89,16 +89,20 @@ body {
     display: block;
     letter-spacing: 1.7rem;
     animation: moveLeft 1000ms ease-in-out; }
+    @media (max-width: 37.5em) {
+      .primary-heading--main {
+        font-size: 5rem;
+        letter-spacing: 1.1rem; } }
   .primary-heading--sub {
     font-size: 2rem;
     display: block;
     letter-spacing: 1rem;
     margin-bottom: 4rem;
     animation: moveRight 1s ease-in-out; }
-  @media (max-width: 37.5em) {
-    .primary-heading {
-      font-size: 4rem;
-      letter-spacing: 1rem; } }
+    @media (max-width: 37.5em) {
+      .primary-heading--sub {
+        font-size: 1.6rem;
+        letter-spacing: 0.9rem; } }
 
 .heading-secondary {
   text-transform: uppercase;
@@ -549,9 +553,18 @@ body {
   padding: 8rem 0;
   font-size: 1.4rem;
   color: #eee; }
+  @media (max-width: 56.25em) {
+    .footer {
+      padding: 5rem 0; } }
+  @media (max-width: 37.5em) {
+    .footer {
+      padding: 4rem 0; } }
   .footer__logo-box {
     text-align: center;
     margin-bottom: 6rem; }
+    @media (max-width: 56.25em) {
+      .footer__logo-box {
+        margin-bottom: 0rem; } }
   .footer__logo {
     width: 15rem;
     height: auto; }
@@ -559,6 +572,10 @@ body {
     border-top: 1px solid #444;
     padding-top: 2rem;
     display: inline-block; }
+    @media (max-width: 56.25em) {
+      .footer__navigation {
+        width: 100%;
+        text-align: center; } }
   .footer__list {
     list-style: none; }
   .footer__item {
@@ -581,20 +598,39 @@ body {
     padding-top: 2rem;
     width: 80%;
     float: right; }
+    @media (max-width: 56.25em) {
+      .footer__copyright {
+        text-align: center;
+        width: 100%;
+        float: none; } }
 
 .row {
   max-width: 114rem;
   margin: 0 auto; }
+  @media (max-width: 56.25em) {
+    .row {
+      max-width: 60rem;
+      padding: 4rem; } }
   .row::after {
     content: "";
     display: table;
     clear: both; }
   .row:not(:last-child) {
     margin-bottom: 6rem; }
+    @media (max-width: 56.25em) {
+      .row:not(:last-child) {
+        margin-bottom: 4.5rem; } }
   .row [class^="col-"] {
     float: left; }
     .row [class^="col-"]:not(:last-child) {
       margin-right: 4rem; }
+      @media (max-width: 56.25em) {
+        .row [class^="col-"]:not(:last-child) {
+          margin-right: 0; } }
+    @media (max-width: 56.25em) {
+      .row [class^="col-"] {
+        width: 100% !important;
+        margin-bottom: 4.5rem; } }
   .row .col-1-of-2 {
     width: calc((100% - 4rem) / 2); }
   .row .col-1-of-3 {
@@ -614,7 +650,21 @@ body {
   background-size: cover;
   background-position: top;
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  position: relative; }
+  position: relative;
+  /* respect the order in which you define media queries*/
+  /********************* start media queries *********************/
+  /*********************                     *********************/
+  /********************* end media queries *********************/
+  /*************************************************************/ }
+  @media (max-width: 75em) {
+    .header {
+      clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%); } }
+  @media (max-width: 56.25em) {
+    .header {
+      clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%); } }
+  @media (max-width: 37.5em) {
+    .header {
+      clip-path: polygon(0 0, 100% 0, 100% 90vh, 0 100%); } }
   .header__logo-box {
     position: absolute;
     top: 4rem;
@@ -659,6 +709,7 @@ body {
   height: 100vh;
   width: 0%;
   opacity: 0%;
+  visibility: hidden;
   position: fixed;
   top: 0;
   left: 0;
@@ -696,7 +747,8 @@ body {
 
 .navigation__checkbox:checked ~ .navigation__nav {
   width: 100%;
-  opacity: 1; }
+  opacity: 1;
+  visibility: visible; }
 
 .navigation__checkbox:checked ~ .navigation__background {
   transform: scale(70); }

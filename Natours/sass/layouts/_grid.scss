@@ -1,5 +1,9 @@
 .row {
     max-width: $grid-width;
+    @include respond(tab-port) {
+        max-width: 60rem;
+        padding: 4rem;
+    }
     margin: 0 auto;
     //check the element that has 0 on height then clear it.
     @include clearfix;
@@ -7,6 +11,9 @@
 
     &:not(:last-child) {
         margin-bottom: $vertical-gutter-width;
+        @include respond(tab-port) {
+            margin-bottom: $vertical-gutter-width-small;
+        }
     }
 
     [class^="col-"] {
@@ -16,6 +23,13 @@
         float: left;
         &:not(:last-child) {
             margin-right: $horizontal-gutter-width;
+            @include respond(tab-port) {
+                margin-right: 0;
+            }
+        }
+        @include respond(tab-port) {
+            width: 100% !important;
+            margin-bottom: $vertical-gutter-width-small;
         }
     }
     // make sure to separate the plus sign from the # sign with a space
