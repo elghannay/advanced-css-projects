@@ -13,3 +13,50 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+/* media query manager.
+
+    phone : 600px
+    tablet portrait : 900px 
+    tablet landscape : 1200px 
+    big desktop : 1800px
+    1200 px - 1800 px is where normal style applies
+
+    breakpoint arguments choices.
+    -   phone 
+    -   tab-land 
+    -   tab-port
+    -   b-desk 
+    use the em unit vs the rem in media queries since they not work 
+    as intended with some browsers .
+    avoid pixels in media queries since the won't be applied if 
+    the user changes the font size.
+
+    ORDER : base + typography > general layout + grid > page layout > components
+*/
+
+@mixin respond($name) {
+    @if $name == phone {
+        @media (max-width: 37.5em) {
+            //600px is width < 600px ?
+            @content;
+        }
+    }
+    @if $name == tab-land {
+        @media (max-width: 56.25em) {
+            //900px is width < 900px ?
+            @content;
+        }
+    }
+    @if $name == tab-port {
+        @media (max-width: 75em) {
+            //1200px  width < 1200px ?
+            @content;
+        }
+    }
+    @if $name == b-desk {
+        @media (min-width: 112.5em) {
+            //1800px is width > 1800px ?
+            @content;
+        }
+    }
+}

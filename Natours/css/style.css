@@ -1,3 +1,23 @@
+/* media query manager.
+
+    phone : 600px
+    tablet portrait : 900px 
+    tablet landscape : 1200px 
+    big desktop : 1800px
+    1200 px - 1800 px is where normal style applies
+
+    breakpoint arguments choices.
+    -   phone 
+    -   tab-land 
+    -   tab-port
+    -   b-desk 
+    use the em unit vs the rem in media queries since they not work 
+    as intended with some browsers .
+    avoid pixels in media queries since the won't be applied if 
+    the user changes the font size.
+
+    ORDER : base + typography > general layout + grid > page layout > components
+*/
 /***********  colors  ***********/
 /***********  grid  ***********/
 /***********  font  ***********/
@@ -39,6 +59,15 @@
 
 html {
   font-size: 62.5%; }
+  @media (max-width: 56.25em) {
+    html {
+      font-size: 56.25%; } }
+  @media (max-width: 75em) {
+    html {
+      font-size: 50%; } }
+  @media (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
 
 body {
   box-sizing: border-box; }
@@ -66,6 +95,10 @@ body {
     letter-spacing: 1rem;
     margin-bottom: 4rem;
     animation: moveRight 1s ease-in-out; }
+  @media (max-width: 37.5em) {
+    .primary-heading {
+      font-size: 4rem;
+      letter-spacing: 1rem; } }
 
 .heading-secondary {
   text-transform: uppercase;
@@ -78,6 +111,10 @@ body {
   letter-spacing: 0.2rem;
   display: inline-block;
   transition: all 0.2s; }
+  @media (max-width: 37.5em) {
+    .heading-secondary {
+      font-size: 2rem;
+      letter-spacing: 0.1rem; } }
   .heading-secondary:hover {
     transform: scale(1.1) skewX(1deg) skewY(1deg);
     text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.199); }

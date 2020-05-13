@@ -27,6 +27,10 @@ body {
         margin-bottom: 4rem;
         animation: moveRight 1s ease-in-out;
     }
+    @include respond(phone) {
+        font-size: 4rem;
+        letter-spacing: 1rem;
+    }
 }
 .heading-secondary {
     text-transform: uppercase;
@@ -42,6 +46,10 @@ body {
     // notice the display
     display: inline-block;
     transition: all 0.2s;
+    @include respond(phone) {
+        font-size: 2rem;
+        letter-spacing: 0.1rem;
+    }
     &:hover {
         transform: scale(1.1) skewX(1deg) skewY(1deg);
         text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.199);
