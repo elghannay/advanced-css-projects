@@ -55,3 +55,8 @@
         width: calc(3 * ((100% - 3 * #{$horizontal-gutter-width}) / 4) + 2 * #{$horizontal-gutter-width});
     }
 }
+.remove-mb {
+    @include respond(tab-port) {
+        margin-bottom: -9.5rem !important;
+    }
+}

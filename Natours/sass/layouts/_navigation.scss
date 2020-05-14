@@ -8,6 +8,10 @@
         border-radius: 50%;
         background-color: white;
         position: fixed;
+        @include respond(tab-port) {
+            top: 3rem;
+            right: 4rem;
+        }
         top: 4rem;
         right: 4rem;
         z-index: 2000;
@@ -24,6 +28,10 @@
         position: fixed;
         top: 4.5rem;
         right: 4.5rem;
+        @include respond(tab-port) {
+            top: 3.5rem;
+            right: 4rem;
+        }
         z-index: 1000;
         transition: all 0.3s ease-in;
         // transform: scale(60);
@@ -35,6 +43,7 @@
         width: 0%;
         opacity: 0%;
         visibility: hidden;
+        // to remove the links from the page.
         position: fixed;
         top: 0;
         left: 0;
