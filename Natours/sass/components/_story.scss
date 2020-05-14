@@ -47,6 +47,9 @@
         /*  A  */
         transform: translateX(-4rem) scale(1.2);
         transition: all 0.2s ease;
+        @include respond(phone) {
+            transform: translateX(-3rem) scale(1.2);
+        }
         /* solves deformation of the shape after transform */
         backface-visibility: hidden;
     }

@@ -59,14 +59,31 @@
         background-image: linear-gradient(105deg, rgba(white, 0.9) 0%, rgba(white, 0.9) 50%, transparent 50%),
             url(../img/nat-10.jpg);
         background-size: cover;
+        // background-size: 100%; cover only the x direction
         background-repeat: no-repeat;
-        height: 50rem;
         border-radius: 3px;
         box-shadow: 0 1rem 4rem rgba(black, 0.2);
-        // we didn't include these two styles to make the form a standalone component
+        @include respond(tab-port) {
+            background-image: linear-gradient(105deg, rgba(white, 0.9) 0%, rgba(white, 0.9) 100%),
+                url(../img/nat-10.jpg);
+        }
+        @include respond(phone) {
+            background-image: linear-gradient(105deg, rgba(white, 0.9) 0%, rgba(white, 0.9) 100%),
+                url(../img/nat-10.jpg);
+        } // we didn't include these two styles to make the form a standalone component
         &__form {
             width: 60%;
             padding: 6rem 8rem 8rem;
+            @include respond(tab-port) {
+                width: 100%;
+                padding: 2rem;
+                text-align: center;
+            }
+            @include respond(phone) {
+                width: 100%;
+                padding: 4rem;
+                text-align: center;
+            }
         }
     }
 }

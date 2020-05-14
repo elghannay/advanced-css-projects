@@ -449,6 +449,13 @@ body {
   border: none;
   border-bottom: 3px solid transparent;
   transition: all 0.2s ease; }
+  @media (max-width: 56.25em) {
+    .form__input {
+      margin: 0 auto; } }
+  @media (max-width: 37.5em) {
+    .form__input {
+      margin: 0 auto;
+      width: 100%; } }
   .form__input:focus {
     outline: none;
     box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.1);
@@ -494,6 +501,9 @@ body {
     width: 1.5rem;
     height: 1.5rem;
     border-radius: 50%; }
+    @media (max-width: 56.25em) {
+      .form__radio-input:checked::after {
+        transform: translate(9%, 8%); } }
 
 .form__radio-label {
   font-size: 1.6rem;
@@ -601,6 +611,9 @@ body {
     transition: all 0.2s ease;
     /* solves deformation of the shape after transform */
     backface-visibility: hidden; }
+    @media (max-width: 37.5em) {
+      .story__image {
+        transform: translateX(-3rem) scale(1.2); } }
   .story__text {
     transform: skewX(12deg) translateX(4rem); }
     @media (max-width: 37.5em) {
@@ -935,9 +948,24 @@ body {
     background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 50%, transparent 50%), url(../img/nat-10.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    height: 50rem;
     border-radius: 3px;
     box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.2); }
+    @media (max-width: 56.25em) {
+      .section-booking .book {
+        background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 100%), url(../img/nat-10.jpg); } }
+    @media (max-width: 37.5em) {
+      .section-booking .book {
+        background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 100%), url(../img/nat-10.jpg); } }
     .section-booking .book__form {
       width: 60%;
       padding: 6rem 8rem 8rem; }
+      @media (max-width: 56.25em) {
+        .section-booking .book__form {
+          width: 100%;
+          padding: 2rem;
+          text-align: center; } }
+      @media (max-width: 37.5em) {
+        .section-booking .book__form {
+          width: 100%;
+          padding: 4rem;
+          text-align: center; } }
