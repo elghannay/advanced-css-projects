@@ -42,7 +42,7 @@
         }
     }
     @if $name == tab-port {
-        @media (max-width: 56.25em) {
+        @media only screen and (max-width: 56.25em) {
             //900px is width < 900px ?
             @content;
         }
