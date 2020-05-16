@@ -68,6 +68,10 @@
           <div class="composition">
             <!-- make sure to add the scr tag in case the user is using a browser that does not support srcset -->
             <!-- 300w and 1000w are the real images widths -->
+            <!-- 20vw and 30vw are determined after calculating manually the display size of the images
+            at those breakpoints 171/600px = 0.3 -> 3ovw and 300px is the display size of the image
+          at large screens. so this allow us to take advantage of density and resolution switching if used on dpr = 2 or 3 -->
+            <!-- it will choose to work with the larger image -->
             <img srcset="img/nat-1.jpg 300w, img/nat-1-large.jpg 1000w"
               sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px" alt="Photo 1"
               class="composition__photo composition__photo--p1" src="img/nat-1-large.jpg">
@@ -318,7 +322,12 @@
   </main>
   <footer class="footer">
     <div class="footer__logo-box">
-      <img src="img/logo-green-2x.png" alt="Full logo" class="footer__logo">
+      <!-- here we force the browser to use the provided images at the current viewport -->
+      <picture>
+        <source media="(max-width: 37.5em)" srcset="img/logo-green-small-1x.png 1x, img/logo-green-small-2x.png 2x">
+        <img class="footer__logo" src="img/logo-green-2x.png" alt="logo image"
+          srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x">
+      </picture>
     </div>
     <div class="row">
       <div class="col-1-of-2">

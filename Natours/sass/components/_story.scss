@@ -23,6 +23,10 @@
         // create a rectangle first and then transform it to a circle
         height: 15rem;
         width: 15rem;
+        // in case if the browser is not supported we want the image to not overflow the shape
+        // and make it round.
+        border-radius: 50%;
+        overflow: hidden;
         @include respond(phone) {
             height: 10rem;
             width: 10rem;
@@ -32,10 +36,14 @@
         /*shape-outside only works when float and height and width*/
         // circle(5o%) create a circle with a radius of 50% of height and width
         // the second argument specify the position.
-        shape-outside: circle(50% at 50% 50%);
-        -webkit-shape-outside: circle(50% at 50% 50%);
-        // convert the shape of the image to a circle
-        clip-path: circle(50% at 50% 50%);
+        @supports ((shape-outside: circle(50% at 50% 50%)) or (-webkit-shape-outside: circle(50% at 50% 50%))) {
+            shape-outside: circle(50% at 50% 50%);
+            -webkit-shape-outside: circle(50% at 50% 50%);
+            // convert the shape of the image to a circle
+            clip-path: circle(50% at 50% 50%);
+            // if the clip path is supported we no longer want to have a border radius
+            border-radius: none;
+        }
         transform: skewX(+12deg);
         @include respond(phone) {
             transform: skewX(0deg);

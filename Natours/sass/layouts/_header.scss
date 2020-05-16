@@ -1,20 +1,29 @@
 .header {
-  height: 95vh;
+  height: 80vh;
   // put the gradient first since we want it to be on top
   background-image: linear-gradient(to right bottom, rgba($primary-medium-green, 0.8), rgba($primary-light-green, 0.8)),
-    url(../img/hero.jpg);
+    url(../img/hero-small.jpg);
   background-size: cover;
   background-position: top;
   // this will ensure that the top of the image always show in place
   // when we resize the viewport
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   position: relative;
   /* respect the order in which you define media queries*/
-
+  @supports (clip-path: polygon(0 0)) {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    height: 95vh;
+  }
   /********************* start media queries *********************/
   /*********************                     *********************/
+
   @include respond(tab-land) {
-    clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
+    height: 70vh;
+    @supports (clip-path: polygon(0 0)) {
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
+      height: 95vh;
+    }
   }
   @include respond(tab-port) {
     clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
@@ -40,5 +49,20 @@
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+  @media (min-resolution: 192dpi) and (min-width: 600px),
+    (-webkit-min-device-pixel-ratio: 2) and (min-width: 600px),
+    (min-width: 2000px) {
+    // let's say the device width is 600px and dpr is 2 then an image of 1200px will
+    // be enough, so it's not logical to load 2000px on that device. that why we added the
+    // the min width 600px. the comma on the media query is like an or statement.
+    // 600px -> 37.5em and 2000px -> 125em.
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($primary-medium-green, 0.8),
+        rgba($primary-light-green, 0.8)
+      ),
+      url(../img/hero.jpg);
+    // the hero image has 2000px.
   }
 }
