@@ -1,0 +1,92 @@
+@import "mixins";
+///////////////////////////////
+/************ icon ************/
+///////////////////////////////
+.logo {
+    height: 3.25rem;
+}
+///////////////////////////////
+/************ search **********/
+///////////////////////////////
+.search {
+    flex: 0 0 40%;
+    font-size: 1.3rem;
+    @include flex-v;
+    &__input {
+        // since the input does not inherit the font properties
+        font-size: inherit;
+        font-family: inherit;
+        color: inherit;
+        padding: 0.7rem 1rem;
+        width: 80%;
+        border-radius: 2rem;
+        background-color: var(--color-grey-light-2);
+        border: none;
+        transition: all 0.3s;
+        margin-right: -3rem;
+        &:focus {
+            width: 100%;
+            outline: none;
+            background-color: var(--color-grey-light-3);
+        }
+        &__input + &__button {
+            background-color: var(--color-grey-light-3);
+        }
+        &::-webkit-input-placeholder {
+            color: var(--color-grey-light-4);
+        }
+    }
+    &__button {
+        outline: none;
+        border: none;
+        cursor: pointer;
+    }
+    &__icon {
+        height: 2.25rem;
+        width: 2.25rem;
+        vertical-align: middle;
+        fill: var(--color-grey-dark-2);
+    }
+}
+///////////////////////////////
+/********* user-nav **********/
+///////////////////////////////
+.user-nav {
+    height: 100%;
+    @include flex-v;
+    &__icon-box {
+        position: relative;
+    }
+    & > * {
+        @include flex-v;
+        height: 100%;
+        padding: 0 2rem;
+
+        &:hover {
+            background-color: var(--color-grey-light-3);
+            cursor: pointer;
+        }
+    }
+    &__icon {
+        height: 2.7rem;
+        width: 2.7rem;
+        fill: var(--color-grey-dark-2);
+    }
+    &__notification {
+        @include flex-v;
+        background-color: var(--color-primary);
+        border-radius: 50%;
+        color: white;
+        height: 1.6rem;
+        width: 1.6rem;
+        position: absolute;
+        top: 1rem;
+        left: 4rem;
+        font-size: 1rem;
+    }
+    &__user-photo {
+        height: 3.75rem;
+        border-radius: 50%;
+        margin-right: 0.9rem;
+    }
+}
