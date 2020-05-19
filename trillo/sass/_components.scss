@@ -94,7 +94,7 @@
     }
 }
 ///////////////////////////////
-/*****side navigation*********/
+/*******side navigation*******/
 ///////////////////////////////
 .sidebar {
     display: flex;
@@ -185,5 +185,108 @@
         font-size: 1.2rem;
         padding: 1rem;
         text-align: center;
+    }
+}
+///////////////////////////////
+/***********gallery***********/
+///////////////////////////////
+.gallery {
+    display: flex;
+
+    &__photo {
+        width: 100%;
+        // block so the image does not display an extra space below it
+        // when we leave it as an inline element, it always need to be
+        // either inline or inline block.
+        display: block;
+    }
+}
+///////////////////////////////
+/**********overview***********/
+///////////////////////////////
+
+.overview {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 2rem;
+    border-bottom: var(--line);
+    &__heading {
+        font-weight: 300;
+        font-size: 2rem;
+        text-transform: uppercase;
+        margin-right: 2rem;
+    }
+    &__stars {
+        display: flex;
+        align-items: center;
+        color: var(--color-primary);
+        // flex: 1; the stars will take the entire space which
+        // is not ideal if you you want to hover on them for ex.
+        margin-right: auto;
+    }
+    &__star-icon,
+    &__location-icon {
+        width: 2rem;
+        height: 2rem;
+        fill: currentColor;
+    }
+    &__location {
+        color: var(--color-primary);
+        display: flex;
+        align-items: center;
+    }
+    &__rating {
+        @include flex-v;
+        flex-direction: column;
+        background-color: var(--color-primary);
+        color: white;
+        padding: 1rem 1.5rem;
+    }
+    &__average {
+        font-size: 1.6rem;
+    }
+    &__votes {
+        font-size: 1rem;
+        margin-top: -0.7rem;
+    }
+}
+//////////////////////////////////////
+/********** inline button ***********/
+//////////////////////////////////////
+.btn-inline {
+    border: none;
+    display: inline-block;
+    cursor: pointer;
+    // to make it as a reusable component
+    background-color: transparent;
+
+    margin: 0 2rem 0 1rem;
+    color: var(--color-primary);
+    transition: all 0.2s;
+    border-bottom: 1px solid currentColor;
+    &:hover {
+        color: var(--color-grey-dark-1);
+    }
+    &:focus {
+        outline: none;
+        animation: pulsate 1s infinite;
+    }
+}
+//////////////////////////////////////
+/**********   animation   ***********/
+//////////////////////////////////////
+@keyframes pulsate {
+    0% {
+        box-shadow: none;
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 1rem 2rem rgba($color: #000000, $alpha: 0.2);
+        transform: scale(1.05);
+    }
+    100% {
+        box-shadow: none;
+        transform: scale(1);
     }
 }

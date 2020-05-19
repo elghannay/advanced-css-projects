@@ -134,7 +134,7 @@ body {
     border-radius: 50%;
     margin-right: 0.9rem; }
 
-/*****side navigation*********/
+/*******side navigation*******/
 .sidebar {
   display: flex;
   flex-direction: column;
@@ -189,6 +189,80 @@ body {
     padding: 1rem;
     text-align: center; }
 
+/***********gallery***********/
+.gallery {
+  display: flex; }
+  .gallery__photo {
+    width: 100%;
+    display: block; }
+
+/**********overview***********/
+.overview {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 2rem;
+  border-bottom: var(--line); }
+  .overview__heading {
+    font-weight: 300;
+    font-size: 2rem;
+    text-transform: uppercase;
+    margin-right: 2rem; }
+  .overview__stars {
+    display: flex;
+    align-items: center;
+    color: var(--color-primary);
+    margin-right: auto; }
+  .overview__star-icon, .overview__location-icon {
+    width: 2rem;
+    height: 2rem;
+    fill: currentColor; }
+  .overview__location {
+    color: var(--color-primary);
+    display: flex;
+    align-items: center; }
+  .overview__rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--color-primary);
+    color: white;
+    padding: 1rem 1.5rem; }
+  .overview__average {
+    font-size: 1.6rem; }
+  .overview__votes {
+    font-size: 1rem;
+    margin-top: -0.7rem; }
+
+/********** inline button ***********/
+.btn-inline {
+  border: none;
+  display: inline-block;
+  cursor: pointer;
+  background-color: transparent;
+  margin: 0 2rem 0 1rem;
+  color: var(--color-primary);
+  transition: all 0.2s;
+  border-bottom: 1px solid currentColor; }
+  .btn-inline:hover {
+    color: var(--color-grey-dark-1); }
+  .btn-inline:focus {
+    outline: none;
+    animation: pulsate 1s infinite; }
+
+/**********   animation   ***********/
+@keyframes pulsate {
+  0% {
+    box-shadow: none;
+    transform: scale(1); }
+  50% {
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+    transform: scale(1.05); }
+  100% {
+    box-shadow: none;
+    transform: scale(1); } }
+
 .container {
   max-width: 120rem;
   margin: 8rem auto;
@@ -219,4 +293,6 @@ body {
 
 .hotel-view {
   background-color: #fff;
-  flex: 1; }
+  flex: 1;
+  height: 100%;
+  width: 100%; }
