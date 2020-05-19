@@ -23,46 +23,33 @@
     background-color: var(--color-grey-dark-1);
 
     flex: 0 0 18%;
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 80rem;
 }
 
 .hotel-view {
     background-color: #fff;
     // testing code
     flex: 1;
-    height: 100%;
-    width: 100%;
-}
-
-.user-reviews {
-    flex: 1;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .detail {
     padding: 4rem;
     display: flex;
     background-color: var(--color-grey-light-1);
+    font-size: 1.4rem;
     .description {
         flex: 0 0 60%;
         background-color: white;
         margin-right: 4rem;
         box-shadow: var(--shadow-light);
         padding: 3rem;
-        font-size: 1.4rem;
     }
     .user-reviews {
-        // get the remaining space
         flex: 1;
-        background-color: white;
-        box-shadow: var(--shadow-light);
-        padding: 3rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }
