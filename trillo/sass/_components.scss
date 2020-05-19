@@ -12,6 +12,11 @@
     flex: 0 0 40%;
     font-size: 1.3rem;
     @include flex-v;
+    @media screen and (max-width: $bp-xxSmall) {
+        order: 1;
+        flex: 0 0 100%;
+        margin-left: +1.5rem;
+    }
     &__input {
         // since the input does not inherit the font properties
         font-size: inherit;
@@ -24,6 +29,10 @@
         border: none;
         transition: all 0.3s;
         margin-right: -3rem;
+        @media screen and (max-width: $bp-xxSmall) {
+            width: 90%;
+            margin-left: -3rem;
+        }
         &:focus {
             width: 100%;
             outline: none;
@@ -55,7 +64,6 @@
 /********* user-nav **********/
 ///////////////////////////////
 .user-nav {
-    height: 100%;
     @include flex-v;
     &__icon-box {
         position: relative;
@@ -64,6 +72,10 @@
         @include flex-v;
         height: 100%;
         padding: 0 2rem;
+        &:last-of-type {
+            padding-right: 0;
+            margin-right: 0;
+        }
 
         &:hover {
             background-color: var(--color-grey-light-3);
@@ -91,6 +103,14 @@
         height: 3.75rem;
         border-radius: 50%;
         margin-right: 0.9rem;
+        @media screen and (max-width: $bp-medium) {
+            height: 3.75rem;
+        }
+    }
+    &__name {
+        @media screen and (max-width: $bp-medium) {
+            display: none;
+        }
     }
 }
 ///////////////////////////////
@@ -102,11 +122,19 @@
     justify-content: space-between;
     &__nav {
         list-style-type: none;
+        @media screen and (max-width: $bp-medium) {
+            margin: 0;
+            display: flex;
+        }
         margin-top: 3.5rem;
     }
     .nav__item {
         width: 100%;
         position: relative;
+        @media screen and (max-width: $bp-medium) {
+            display: flex;
+            width: 100%;
+        }
         &::before {
             content: "";
             position: absolute;
@@ -126,6 +154,9 @@
         }
         &:not(:last-child) {
             margin-bottom: 0.5rem;
+            @media screen and (max-width: $bp-medium) {
+                margin-bottom: 0rem;
+            }
         }
 
         &:active::before {
@@ -165,12 +196,21 @@
     .nav__link:visited {
         position: relative;
         z-index: 10;
+        width: 100%;
         // we want the hover effect on the items to be bellow the links
         padding: 1.5rem 1rem;
         text-decoration: none;
         color: var(--color-grey-light-1);
         display: flex;
         align-items: center;
+        @media screen and (max-width: $bp-medium) {
+            display: flex;
+            justify-content: center;
+        }
+        @media screen and (max-width: $bp-xSmall) {
+            flex-direction: column;
+            align-items: center;
+        }
     }
     .nav__icon {
         width: 2rem;
@@ -178,12 +218,23 @@
         // current color is the color of the element or it parent
         fill: currentColor;
         margin-right: 3rem;
+        @media screen and (max-width: $bp-medium) {
+            margin-right: 1rem;
+        }
+        @media screen and (max-width: $bp-xSmall) {
+            margin-right: 0rem;
+            width: 1.5rem;
+            height: 1.5rem;
+        }
     }
     &__copyright {
         color: var(--color-grey-light-3);
         font-size: 1.2rem;
         padding: 1rem;
         text-align: center;
+        @media screen and (max-width: $bp-medium) {
+            display: none;
+        }
     }
 }
 ///////////////////////////////
@@ -215,6 +266,13 @@
         font-size: 2rem;
         text-transform: uppercase;
         margin-right: 2rem;
+        @media screen and (max-width: $bp-medium) {
+            font-size: 1.5rem;
+            margin-right: 0.3rem;
+        }
+        @media screen and (max-width: $bp-xSmall) {
+            font-size: 1.3rem;
+        }
     }
     &__stars {
         display: flex;
@@ -229,6 +287,10 @@
         width: 2rem;
         height: 2rem;
         fill: currentColor;
+        @media screen and (max-width: $bp-medium) {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
     }
     &__location {
         color: var(--color-primary);
@@ -241,13 +303,24 @@
         background-color: var(--color-primary);
         color: white;
         padding: 1rem 1.5rem;
+        @media screen and (max-width: $bp-medium) {
+            padding: 0.5rem 1.5rem;
+        }
     }
     &__average {
         font-size: 1.6rem;
+        @media screen and (max-width: $bp-medium) {
+            font-size: 1.4rem;
+        }
     }
     &__votes {
         font-size: 1rem;
         margin-top: -0.7rem;
+        text-align: center;
+        @media screen and (max-width: $bp-medium) {
+            font-size: 0.8rem;
+            margin-top: 0.1rem;
+        }
     }
 }
 ////////////////////////////////////////////
@@ -256,11 +329,16 @@
 .btn-inline {
     border: none;
     display: inline-block;
+
     cursor: pointer;
     // to make it as a reusable component
     background-color: transparent;
 
     margin: 0 2rem 0 1rem;
+    @media screen and (max-width: $bp-medium) {
+        margin: 0 1rem 0 0.5rem;
+        font-size: 1.2rem;
+    }
     color: var(--color-primary);
     transition: all 0.2s;
     border-bottom: 1px solid currentColor;
@@ -332,6 +410,9 @@
     & > * {
         display: inline-block;
         padding: 2.5rem 7.5rem;
+        @media screen and (max-width: $bp-medium) {
+            padding: 1.5rem 4.5rem;
+        }
         transition: transform 0.2s;
     }
     &--visible {
@@ -392,6 +473,7 @@
     }
     &__friends {
         display: flex;
+        margin-right: 1rem;
     }
     &__photo {
         box-sizing: content-box;
@@ -406,7 +488,18 @@
 /**********  user-reviews  **********/
 //////////////////////////////////////
 .user-reviews {
+    @media screen and (max-width: $bp-small) {
+        &:last-child {
+            width: 100%;
+        }
+    }
     .review {
+        @media screen and (max-width: $bp-medium) {
+            padding: 1.5rem;
+        }
+        @media screen and (max-width: $bp-small) {
+            margin-right: 0;
+        }
         padding: 3rem;
         background-color: white;
         box-shadow: var(--shadow-light);
@@ -444,6 +537,9 @@
             margin-left: auto;
             color: var(--color-primary);
             font-size: 2.2rem;
+            @media screen and (max-width: $bp-small) {
+                margin-right: 2rem;
+            }
         }
         &::before {
             content: "\201C";
