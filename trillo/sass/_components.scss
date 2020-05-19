@@ -29,14 +29,17 @@
             outline: none;
             background-color: var(--color-grey-light-3);
         }
-        &__input + &__button {
-            background-color: var(--color-grey-light-3);
-        }
         &::-webkit-input-placeholder {
             color: var(--color-grey-light-4);
         }
     }
+    &__input:focus + &__button {
+        background-color: var(--color-grey-light-3);
+    }
     &__button {
+        -webkit-appearance: none;
+        appearance: none;
+        background-color: var(--color-grey-light-2);
         outline: none;
         border: none;
         cursor: pointer;
@@ -113,13 +116,13 @@
             left: 0;
             background-color: var(--color-primary);
             transition: transform 0.2s, width cubic-bezier(0, 1, 0, 1) 0.4s 0.4s, background-color 0.12s;
-            transform: scale(0);
+            transform: scaleY(0);
             transform-origin: center;
             width: 4px;
             z-index: 0;
         }
         &:hover::before {
-            transform: scale(1);
+            transform: scaleY(1);
             width: 100%;
         }
         &:not(:last-child) {
@@ -167,7 +170,6 @@
         padding: 1.5rem 1rem;
         text-decoration: none;
         color: var(--color-grey-light-1);
-        display: block;
         display: flex;
         align-items: center;
     }
