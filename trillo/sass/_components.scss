@@ -1,12 +1,12 @@
 @import "mixins";
 ///////////////////////////////
-/************ icon ************/
+/************ icon ***********/
 ///////////////////////////////
 .logo {
     height: 3.25rem;
 }
 ///////////////////////////////
-/************ search **********/
+/************ search *********/
 ///////////////////////////////
 .search {
     flex: 0 0 40%;
@@ -88,5 +88,100 @@
         height: 3.75rem;
         border-radius: 50%;
         margin-right: 0.9rem;
+    }
+}
+///////////////////////////////
+/*****side navigation*********/
+///////////////////////////////
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    &__nav {
+        list-style-type: none;
+        margin-top: 3.5rem;
+    }
+    .nav__item {
+        width: 100%;
+        position: relative;
+        &::before {
+            content: "";
+            position: absolute;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: var(--color-primary);
+            transition: transform 0.2s, width cubic-bezier(0, 1, 0, 1) 0.4s 0.4s, background-color 0.12s;
+            transform: scale(0);
+            transform-origin: center;
+            width: 4px;
+            z-index: 0;
+        }
+        &:hover::before {
+            transform: scale(1);
+            width: 100%;
+        }
+        &:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
+
+        &:active::before {
+            background-color: var(--color-primary-light);
+        }
+    }
+    .nav__item--active {
+        background-color: var(--color-primary);
+    }
+
+    /*************************************/
+    //////////  cool hover effect  ////////
+    /*************************************/
+    // .nav__item {
+    //     width: 100%;
+    //     position: relative;
+    //     &::before {
+    //         transition: all 0.2s;
+    //         position: absolute;
+    //         top: 0;
+    //         left: 0;
+    //         content: "";
+    //         background-color: var(--color-primary);
+    //         height: 100%;
+    //         transform: scale(0);
+    //         transform-origin: center;
+    //         width: 4px;
+    //     }
+    //     &:hover::before {
+    //         transform: scale(1);
+    //     }
+    //     &:not(:last-child) {
+    //         margin-bottom: 0.5rem;
+    //     }
+    // }
+    .nav__link:link,
+    .nav__link:visited {
+        position: relative;
+        z-index: 10;
+        // we want the hover effect on the items to be bellow the links
+        padding: 1.5rem 1rem;
+        text-decoration: none;
+        color: var(--color-grey-light-1);
+        display: block;
+        display: flex;
+        align-items: center;
+    }
+    .nav__icon {
+        width: 2rem;
+        height: 2rem;
+        // current color is the color of the element or it parent
+        fill: currentColor;
+        margin-right: 3rem;
+    }
+    &__copyright {
+        color: var(--color-grey-light-3);
+        font-size: 1.2rem;
+        padding: 1rem;
+        text-align: center;
     }
 }
