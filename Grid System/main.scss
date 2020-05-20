@@ -7,7 +7,7 @@
 $grid-size: 12;
 
 %grid-formatting {
-    font-size: 20px;
+    font-size: 2vw;
     text-align: center;
     padding: 40px;
     background-color: rgb(55, 214, 127);
@@ -18,6 +18,6 @@ $grid-size: 12;
 @for $i from 1 through $grid-size {
     .col-#{$i} {
         @extend %grid-formatting;
-        width: 100% / ($grid-size / $i);
+        max-width: 100% / ($grid-size / $i);
     }
 }
