@@ -28,7 +28,7 @@
             grid-column: 1/3;
             grid-row: 2/3;
             background-color: violet;
-            // z-index: 4;
+            z-index: 4;
         }
         &5 {
             grid-row: 2/3;
@@ -37,6 +37,132 @@
         }
         &6 {
             background-color: orangered;
+        }
+    }
+}
+
+//////////////////////////////////////
+/////////                   //////////
+/////////      method 1     //////////
+/////////    line numbers   //////////
+//////////////////////////////////////
+.container2 {
+    display: grid;
+    width: 1000px;
+    grid-template-rows: 30px 100px 100px 100px 30px;
+    grid-template-columns: repeat(3, 1fr) 15%;
+    gap: 20px;
+    margin: 100px auto;
+    background-color: #eee;
+
+    .grid-item {
+        font-size: 16px;
+        text-align: center;
+        background-color: orangered;
+        &1 {
+            grid-column: 1/-1;
+        }
+        &2 {
+        }
+        &3 {
+        }
+        &4 {
+        }
+        &5 {
+            grid-row: 2/-2;
+            grid-column: -2/-1;
+        }
+        &6 {
+            grid-row: 3/-2;
+            grid-column: 1/-2;
+        }
+        &7 {
+            grid-column: 1/-1;
+        }
+    }
+}
+//////////////////////////////////////
+/////////                   //////////
+/////////     method 2      //////////
+/////////    line names     //////////
+/////////                   //////////
+//////////////////////////////////////
+.container3 {
+    display: grid;
+    width: 1000px;
+    grid-template-rows: [header-start]30px[header-end boxes-start] 100px[boxes-end main-start] 100px[main-end footer-start] 100px [footer-end]30px;
+    grid-template-columns: repeat(3, [col-start] 1fr[col-end]) 15% [grid-end];
+    gap: 20px;
+    margin: 100px auto;
+    background-color: #eee;
+
+    .grid-item {
+        font-size: 16px;
+        text-align: center;
+        background-color: orangered;
+        &1 {
+            grid-column: col-start 1 / grid-end;
+        }
+        &2 {
+        }
+        &3 {
+        }
+        &4 {
+        }
+        &5 {
+            grid-row: boxes-start / footer-start;
+        }
+        &6 {
+            grid-row: main-start / main-end;
+            grid-column: col-start 1 / col-end 3;
+        }
+        &7 {
+            grid-column: col-start 1 / grid-end;
+        }
+    }
+}
+//////////////////////////////////////
+/////////                   //////////
+/////////     method 3      //////////
+/////////   template area   //////////
+/////////                   //////////
+//////////////////////////////////////
+// ideal for small layouts
+.container3 {
+    display: grid;
+    width: 1000px;
+    grid-template-rows: 30px 100px 100px 100px 30px;
+    grid-template-columns: repeat(3, 1fr) 15%;
+    gap: 20px;
+    margin: 100px auto;
+    background-color: #eee;
+    grid-template-areas:
+        "head head head head"
+        "box box box side"
+        "main main main side"
+        "foot foot foot foot";
+
+    .grid-item {
+        font-size: 16px;
+        text-align: center;
+        background-color: orangered;
+        &1 {
+            grid-area: head;
+        }
+        &2 {
+        }
+        &3 {
+        }
+        &4 {
+        }
+        &5 {
+            grid-area: side;
+        }
+        &6 {
+            grid-area: main;
+        }
+        &7 {
+            grid-area: foot;
         }
     }
 }
