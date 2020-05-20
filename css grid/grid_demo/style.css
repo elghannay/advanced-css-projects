@@ -98,3 +98,19 @@
       grid-area: main; }
     .container3 .grid-item7 {
       grid-area: foot; }
+
+.container4 {
+  display: grid;
+  width: 1000px;
+  grid-template-rows: repeat(2, 100px);
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-flow: column;
+  grid-auto-rows: 100px;
+  grid-auto-columns: 100px;
+  gap: 20px;
+  margin: 100px auto;
+  background-color: #eee; }
+  .container4 .grid-item {
+    font-size: 16px;
+    text-align: center;
+    background-color: orangered; }
