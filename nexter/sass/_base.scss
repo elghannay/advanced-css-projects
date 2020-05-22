@@ -39,3 +39,18 @@ body {
     font-weight: 300;
     line-height: 1.6;
 }
+.container {
+    display: grid;
+    grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
+    // we want the overall layout to have a width of 1140px so divided by 8 columns it will results in 140px /col.
+    // minmax(6rem 1fr) will act as a padding that will always be displayed and does not shrink.
+    grid-template-columns:
+        [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr)
+        [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end])
+        [center-end] minmax(6rem, 1fr) [full-end];
+
+    & > * {
+        padding: 1rem;
+        font-size: 2rem;
+    }
+}
