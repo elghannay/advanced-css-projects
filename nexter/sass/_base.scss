@@ -59,12 +59,14 @@ body {
         grid-template-columns:
             [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end])
             [center-end] minmax(6rem, 1fr) [full-end];
+        // defining area names is crucial to work with grid otherwise it's impossible to do it.
     }
 
     @media only screen and (max-width: $bp-medium) {
+        // grid-template-rows: 6rem 80vh min-content min-content repeat(3, min-content);
         grid-template-rows: 6rem calc(100vh - 6rem);
         // since they were a lot of min content we removed them
-        // and let the auto placement algorithm to make it job
+        // and let the auto placement algorithm to make it job and the rest will be sized based on it content.
         // remove 6 rem of the sidebar from the entire viewport.
     }
 }

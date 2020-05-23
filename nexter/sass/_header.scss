@@ -1,6 +1,7 @@
 .header {
     background-color: $color-grey-dark-1;
     grid-column: full-start / col-end 6;
+    // this is how can we create an overlay. by setting a gradient by the same color.
     background-image: linear-gradient(rgba($color-secondary, 0.93), rgba($color-secondary, 0.93)), url(../img/hero.jpeg);
     background-size: cover;
     background-position: center;
@@ -8,8 +9,12 @@
     padding-top: 4rem;
 
     display: grid;
+    // the key take away here is whenever you define a fixed width or height
+    // you should back it up with min-content so the container will at least fit the content.
     grid-template-rows: 1fr min-content minmax(6rem, min-content) 1fr;
     grid-template-columns: minmax(min-content, max-content);
+    // max content so the text does not break.
+    // and min content so the width will never be more narrow than the content.
     grid-row-gap: 1.5rem;
     justify-content: center;
 
@@ -34,9 +39,9 @@
     &__seenon-text {
         display: grid;
         grid-template-columns: 1fr max-content 1fr;
-        // max-content to prevent txt from breaking
         grid-column-gap: 1.5rem;
         align-items: center;
+
         font-size: 1.6rem;
         color: $color-grey-light-2;
 
@@ -57,6 +62,8 @@
         align-items: center;
 
         img {
+            // force the images to keep their aspect ratio and make them responsive
+            // in case of a fixed width the images breaks the design.
             max-height: 2.5rem;
             max-width: 100%;
             filter: brightness(70%);

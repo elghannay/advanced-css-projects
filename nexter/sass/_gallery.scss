@@ -89,4 +89,9 @@
         // remove the space below the image
         display: block;
     }
+    @media only screen and (max-width: $bp-medium) {
+        // display: none;
+        grid-column: 1/-1;
+        grid-row: 8/9;
+    }
 }
