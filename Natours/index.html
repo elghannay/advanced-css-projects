@@ -72,6 +72,10 @@
             at those breakpoints 171/600px = 0.3 -> 3ovw and 300px is the display size of the image
           at large screens. so this allow us to take advantage of density and resolution switching if used on dpr = 2 or 3 -->
             <!-- it will choose to work with the larger image -->
+            <!-- the sizes attribute is useful when the image does not take the full width. by default browsers -->
+            <!-- assume that responsive images needs to take the full width thus it choose the larger image. even though you may not  -->
+            <!-- want to display that large one. -->
+
             <img srcset="img/nat-1.jpg 300w, img/nat-1-large.jpg 1000w"
               sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px" alt="Photo 1"
               class="composition__photo composition__photo--p1" src="img/nat-1-large.jpg">
