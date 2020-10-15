@@ -1,124 +1,87 @@
-const canvasSketch = require('canvas-sketch');
-const random = require('canvas-sketch-util/random');
+// Ensure ThreeJS is in global scope for the 'examples/'
+global.THREE = require("three");
 
-// Import THREE and assign it to global scope
-global.THREE = require('three');
+// Include any additional ThreeJS examples below
+require("three/examples/js/controls/OrbitControls");
 
-// Now import any ThreeJS example utilities
-require('three/examples/js/controls/OrbitControls');
+const canvasSketch = require("canvas-sketch");
+const { Mesh } = require("three");
 
-// A sketch that simply renders the passed 'text' setting
-// into the center of the canvas
-const textSketch = () => {
-  return ({ context, width, height, settings }) => {
-    const { text } = settings;
-
-    // Clear canvas
-    context.clearRect(0, 0, width, height);
-
-    // Draw background
-    context.fillStyle = 'black';
-    context.fillRect(0, 0, width, height);
-
-    // Draw text
-    const fontSize = 80;
-    context.fillStyle = 'white';
-    context.textAlign = 'center';
-    context.textBaseline = 'middle';
-    context.font = `${fontSize}px monospace`;
-    context.fillText(text || '', width / 2, height / 2);
-  };
-};
-
-// Setup our sketch
 const settings = {
   // Make the loop animated
   animate: true,
   // Get a WebGL canvas rather than 2D
-  context: 'webgl',
-  // Turn on MSAA
-  attributes: { antialias: true }
+  context: "webgl"
 };
 
-const sketch = async ({ context }) => {
-  // Wait for text sketch to load up
-  const textManager = await canvasSketch(textSketch, {
-    dimensions: [512, 512],
-    // Do not attach keyboard shortcuts
-    hotkeys: false,
-    // Do not attach to parent
-    parent: false
-  });
-
-  // Get the other canvas
-  const otherCanvas = textManager.props.canvas;
-
+const sketch = ({ context }) => {
   // Create a renderer
   const renderer = new THREE.WebGLRenderer({
-    context
+    canvas: context.canvas
   });
 
-  // Black background
-  renderer.setClearColor('hsl(0, 0%, 20%)', 1);
+  // WebGL background color
+  renderer.setClearColor("#000", 1);
 
-  // create a camera
-  const camera = new THREE.PerspectiveCamera(45, 1, 0.01, 100);
-  camera.position.set(2, 2, -4);
+  // Setup a camera
+  const camera = new THREE.PerspectiveCamera(50, 1, 0.01, 500);
+  camera.position.set(2, 4, -5);
   camera.lookAt(new THREE.Vector3());
 
-  // set up some orbit controls
+  // Setup camera controller
   const controls = new THREE.OrbitControls(camera, context.canvas);
 
-  // setup your scene
+  // Setup your scene
   const scene = new THREE.Scene();
 
-  const map = new THREE.Texture(otherCanvas);
+  // Setup a geometry
+  const earth = new THREE.SphereGeometry(1, 32, 16);
+  const moon = new THREE.SphereGeometry(0.5, 32, 16);
 
-  // A cube with basic mamterial
-  const mesh = new THREE.Mesh(
-    new THREE.BoxGeometry(1, 1, 1),
-    new THREE.MeshBasicMaterial({
-      map
-    })
-  );
-  scene.add(mesh);
+  // adding textures 
 
-  // Update the text with a new string
-  const setText = (text) => {
-    // Pass in new settings, this triggers a re-render
-    textManager.update({
-      text
-    });
-    // Make sure WebGL gets the new texture
-    map.needsUpdate = true;
-  };
+  const loader = new THREE.TextureLoader();
+  const earthTexture = loader.load("earth.jpg");
+  const moonTexture = loader.load("moon.jpg");
 
-  // Set some random characters
-  const remix = () => {
-    const maxChars = 6;
-    const chars = Array.from(new Array(maxChars)).map(() => {
-      return String.fromCharCode(random.rangeFloor(33, 127));
-    }).join('');
-    setText(chars);
-  };
+  // Setup a material
+  const earthMaterial = new THREE.MeshBasicMaterial({
+    map: earthTexture
+  });
 
-  remix();
-  setInterval(remix, 100);
+  const moonMaterial = new THREE.MeshBasicMaterial({
+    map: moonTexture
+  });
+
+  // Setup a mesh with geometry + material
+  const earthMesh = new THREE.Mesh(earth, earthMaterial);
+  scene.add(earthMesh);
+
+  const moonMesh = new THREE.Mesh(moon, moonMaterial);
+  moonMesh.position.set(3, .5, 0);
+  moonMesh.scale.setScalar(0.4)
+  scene.add(moonMesh);
 
   // draw each frame
   return {
     // Handle resize events here
     resize({ pixelRatio, viewportWidth, viewportHeight }) {
       renderer.setPixelRatio(pixelRatio);
-      renderer.setSize(viewportWidth, viewportHeight);
+      renderer.setSize(viewportWidth, viewportHeight, false);
       camera.aspect = viewportWidth / viewportHeight;
       camera.updateProjectionMatrix();
     },
-    // And render events here
-    render({ time, deltaTime }) {
-      mesh.rotation.y += deltaTime * (5 * Math.PI / 180);
+    // Update & render your scene here, and add animation
+    render({ time }) {
+      moonMesh.rotation.y = time * 0.1;
+      earthMesh.rotation.y = time * 0.2;
       controls.update();
       renderer.render(scene, camera);
+    },
+    // Dispose of events & renderer for cleaner hot-reloading
+    unload() {
+      controls.dispose();
+      renderer.dispose();
     }
   };
 };
