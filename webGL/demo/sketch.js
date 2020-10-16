@@ -24,7 +24,7 @@ const sketch = ({ context }) => {
   renderer.setClearColor("#000", 1);
 
   // Setup a camera
-  const camera = new THREE.PerspectiveCamera(50, 1, 0.01, 500);
+  const camera = new THREE.PerspectiveCamera(50, 1, 0.01, 100);
   camera.position.set(2, 4, -5);
   camera.lookAt(new THREE.Vector3());
 
@@ -45,13 +45,19 @@ const sketch = ({ context }) => {
   const moonTexture = loader.load("moon.jpg");
 
   // Setup a material
-  const earthMaterial = new THREE.MeshBasicMaterial({
-    map: earthTexture
+  const earthMaterial = new THREE.MeshStandardMaterial({
+    map: earthTexture,
+    roughness: 1,
+    metalnes: 0
   });
 
-  const moonMaterial = new THREE.MeshBasicMaterial({
-    map: moonTexture
+  const moonMaterial = new THREE.MeshStandardMaterial({
+    map: moonTexture,
+    roughness: 1,
+    metalnes: 0
   });
+
+  const moonGroup = new THREE.Group();
 
   // Setup a mesh with geometry + material
   const earthMesh = new THREE.Mesh(earth, earthMaterial);
@@ -60,7 +66,22 @@ const sketch = ({ context }) => {
   const moonMesh = new THREE.Mesh(moon, moonMaterial);
   moonMesh.position.set(3, .5, 0);
   moonMesh.scale.setScalar(0.4)
-  scene.add(moonMesh);
+
+  const light = new THREE.PointLight('white', 2);
+  light.position.set(2, 2, 0.5)
+
+
+
+  moonGroup.add(moonMesh);
+  scene.add(moonGroup);
+
+  // add light helper 
+
+  scene.add(light);
+  scene.add(new THREE.PointLightHelper(light, 0.2))
+  // scene.add(new THREE.AxesHelper(5));
+  // scene.add(new THREE.GridHelper(5, 25));
+  // scene.add(new THREE.CameraHelper(camera));
 
   // draw each frame
   return {
@@ -75,6 +96,7 @@ const sketch = ({ context }) => {
     render({ time }) {
       moonMesh.rotation.y = time * 0.1;
       earthMesh.rotation.y = time * 0.2;
+      moonGroup.rotation.y = time * 0.14
       controls.update();
       renderer.render(scene, camera);
     },
