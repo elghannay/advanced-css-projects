@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            background-color: #000000;
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/94/three.min.js"></script>
+    <script>
+
+        var camera, scene, renderer;
+        var geometry, material, mesh;
+
+        function init() {
+
+
+
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10);
+            camera.position.z = 3;
+
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color(0xffffff);
+
+            // define the shape of an object in a scene
+            geometry = new THREE.IcosahedronGeometry(0.5);
+            material = new THREE.MeshNormalMaterial({ color: 0x000000, wireframe: false });
+
+            mesh = new THREE.Mesh(geometry, material);
+            scene.add(mesh);
+
+            renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.body.appendChild(renderer.domElement);
+
+        }
+
+        function animate(time) {
+
+            mesh.rotation.x = time * 0.0005;
+            mesh.rotation.y = time * 0.001;
+            // we can display the scene by asking the renderer to display it from the
+            // camera's perspective
+            renderer.render(scene, camera);
+            /*
+             requestAnimationFrame() ,  executes the function passed to
+            it when the browser is ready to paint a new frame. In that function, we perform any
+            necessary updates to the scene
+*/
+            requestAnimationFrame(animate);
+
+        }
+
+        init();
+        requestAnimationFrame(animate);
+
+    </script>
+</body>
+
+</html>
