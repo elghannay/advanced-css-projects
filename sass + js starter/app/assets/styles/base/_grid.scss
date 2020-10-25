@@ -1,0 +1,38 @@
+.row {
+    &::after {
+        display: table;
+        clear: both;
+        content: "";
+    }
+    &--medium-4 {
+        float: left;
+        width: 33.33%;
+        @include phone {
+            width: 100%;
+            text-align: center;
+            & > * {
+                width: 100%;
+            }
+        }
+    }
+    &--medium-8 {
+        float: right;
+        width: 66.66%;
+        padding-left: 2rem;
+        @include phone {
+            padding-left: 0rem;
+            width: 100%;
+            display: block;
+            margin: 0 auto;
+        }
+    }
+    &--medium-6 {
+        float: left;
+        width: 50%;
+        @include phone {
+            margin-right: 0rem;
+            width: 100%;
+            display: block;
+        }
+    }
+}

@@ -1,0 +1,124 @@
+.header {
+    background-color: rgba($color: $mainblue, $alpha: 0.4);
+    color: white;
+    width: 100%;
+    padding: 0.5rem 0;
+    position: fixed;
+    z-index: 2;
+    transition: all 0.2s ease-out;
+
+    @include phone {
+        position: absolute;
+
+        padding-bottom: 0;
+        padding-top: 7rem;
+        background-color: transparent;
+    }
+    &--dark {
+        background-color: rgba(23, 51, 71, 0.9);
+        @include phone {
+            background-color: transparent;
+        }
+    }
+    &--dark img {
+        transform: scale(0.62) translateY(-29px);
+    }
+    &--bg {
+        @include phone {
+            background-color: rgba($color: $mainblue, $alpha: 0.75);
+        }
+    }
+    img {
+        transition: all 0.3s ease-out;
+        position: absolute;
+        top: 0px;
+        background-color: $mainblue;
+        padding: 1.1rem;
+        @include phone {
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    ul {
+        margin-right: 2rem;
+        display: flex;
+        @include phone {
+            margin: 1rem 0;
+            width: 95%;
+            justify-content: space-between;
+        }
+        li {
+            list-style: none;
+            margin-right: 1rem;
+            @include phone {
+                margin-right: 0rem;
+            }
+            a {
+                text-decoration: none;
+                color: white;
+                transition: all 0.2s ease-out;
+                &:hover,
+                &:active {
+                    color: $mainOrange;
+                }
+            }
+        }
+    }
+    &__menu-icon {
+        display: none;
+        @include phone {
+            width: 20px;
+            height: 21px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 5;
+            display: block;
+            %default {
+                position: absolute;
+                width: 20px;
+                right: 0px;
+                height: 3px;
+                background-color: #fff;
+            }
+            &--middle::before {
+                content: "";
+                top: -8px;
+                @extend %default;
+            }
+            &--middle {
+                top: 10px;
+                @extend %default;
+            }
+            &--middle::after {
+                content: "";
+                top: 8px;
+                @extend %default;
+            }
+        }
+    }
+    .nav {
+        display: flex;
+        align-items: center;
+        float: right;
+        transition: all 0.2s ease-in-out;
+        @include phone {
+            width: 100%;
+            align-items: center;
+            opacity: 0;
+            flex-flow: column-reverse wrap;
+        }
+        &--is-visible {
+            @include phone {
+                opacity: 1;
+            }
+        }
+        a {
+            &.is-current-link {
+                color: $mainOrange;
+            }
+        }
+    }
+}
