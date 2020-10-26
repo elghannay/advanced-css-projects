@@ -1,18 +1,17 @@
 // COLOR VARIABLES
-$color-primary: #c69963;
-$color-primary-dark: #b28451;
-
-$color-secondary: #101d2c;
-
-$color-grey-light-1: #f9f7f6;
-$color-grey-light-2: #aaa;
-
-$color-grey-dark-1: #54483a;
-$color-grey-dark-2: #6d5d4b;
+$color-blue-light-1: #00a1e0;
+$color-blue-light-2: #215ca0;
+$color-blue-light-3: #032e61;
+$color-grey-1: #333d47;
+$color-grey-2: #101214;
+$color-blue-dark-2: #211746;
+$color-blue-dark-1: #430098;
+$gradient-primary: linear-gradient(135deg, #9d6ed0, #43accd);
 
 // FONT VARIABLES
-$font-primary: "Nunito", sans-serif;
-$font-display: "Josefin Sans", sans-serif;
+$font-primary: "Lato", sans-serif;
+
+$font-display: "Open Sans", sans-serif;
 
 // RESPONSIVE BREAKPOINTS
 $bp-largest: 75em; // 1200px
@@ -39,34 +38,7 @@ html {
 
 body {
     font-family: $font-primary;
-    color: $color-grey-dark-2;
+    color: $color-grey-2;
     font-weight: 300;
     line-height: 1.6;
-}
-.container {
-    display: grid;
-    // most of the time we don't reason about rows,we want them to grow with content.
-    grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
-    // we want the overall layout to have a width of 1140px so divided by 8 columns it will results in 140px /col.
-    // minmax(6rem 1fr) will act as a padding that will always be displayed and does not shrink.
-    grid-template-columns:
-        [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr)
-        [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end])
-        [center-end] minmax(6rem, 1fr) [full-end];
-
-    @media only screen and (max-width: $bp-large) {
-        grid-template-rows: 6rem 80vh min-content 40vw repeat(3, min-content);
-        grid-template-columns:
-            [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end])
-            [center-end] minmax(6rem, 1fr) [full-end];
-        // defining area names is crucial to work with grid otherwise it's impossible to do it.
-    }
-
-    @media only screen and (max-width: $bp-medium) {
-        // grid-template-rows: 6rem 80vh min-content min-content repeat(3, min-content);
-        grid-template-rows: 6rem calc(100vh - 6rem);
-        // since they were a lot of min content we removed them
-        // and let the auto placement algorithm to make it job and the rest will be sized based on it content.
-        // remove 6 rem of the sidebar from the entire viewport.
-    }
 }
